@@ -1,14 +1,14 @@
 <h1>Créer son compte</h1>
 <form method="post">
 	<fieldset>
-		<label for="login">login<input type="text" name="login"></label><br>
-		<label for="password">Password<input type="password" name="password"></label><br>
-		<label for="nom">nom<input type="text" name="nom"></label><br>
-		<label for="prenom">prenom<input type="text" name="prenom"></label><br>
-		<label for="email">email<input type="email" name="email"></label><br>
+		<label for="login">login <input type="text" name="login" required></label><br>
+		<label for="password">Password <input type="password" name="password" required></label><br>
+		<label for="nom">nom <input type="text" name="nom" required></label><br>
+		<label for="prenom">prenom <input type="text" name="prenom" required></label><br>
+		<label for="email">email <input type="email" name="email" required></label><br>
 	
-		<button type="sumbit">Envoyer</button>
+		<input type="submit" onclick="window.location.href='../index.php'" value='Créer le compte'>
 
 	</fieldset>
 </form>
-<button onclick="window.location.href=''">se connecter</button>
+<input type="submit" onclick="window.location.href='../index.php'" value="login">
