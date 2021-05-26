@@ -17,9 +17,11 @@ class Connexion extends CI_Controller {
         }
 
         if(ModeleInscription :: checkUser($user)){
-            $message = "Connecter";
+            $message="";
+            $tmp=1;
             $login = $email = $password = $prenom = $nom =" ";
         }else{
+            $tmp=0;
             if($user['login'] =="azertyuiopqsdfghjklmwxcvbn" && $user['password']=="azertyuiopqsdfghjklmwxcvbn")
                 $message="";
             else
@@ -29,7 +31,15 @@ class Connexion extends CI_Controller {
         echo $message;
 
         $this->load->view('templates/header');
-        $this->load->view('connexion');
+        if($tmp==1){
+            session_start();
+            $_SESSION['auth']= 1;
+            $_SESSION['login']=$user['login'];
+            $this->load->view('page');
+        }
+        else{
+            $this->load->view('connexion');
+        }
         $this->load->view('templates/footer');
     }
      
