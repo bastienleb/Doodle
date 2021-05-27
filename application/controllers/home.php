@@ -1,11 +1,17 @@
 <?php 
 class Home extends CI_Controller {
 
+    public function index(){
+        echo 'pate';
+    }
+
     public function connexion_page()
 	{
         $this->load->model('ModeleInscription');
         $login = filter_input(INPUT_POST,"login",FILTER_DEFAULT);
         $password = filter_input(INPUT_POST,"password",FILTER_DEFAULT);
+
+        echo $login." ".$password;
 
         if($login !== NULL  && $password !== NULL){
             $user['login'] = $login;
