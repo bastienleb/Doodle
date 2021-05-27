@@ -11,4 +11,4 @@
 
 	</fieldset>
 </form>
-<input type="submit" onclick="window.location.href='connexion_page'" value="login">
+<input type="submit" onclick="window.location.href='../connexion'" value="login">
