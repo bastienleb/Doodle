@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/~leblet/projet_doodle/';
+$config['base_url'] = '/~leblet/projet_doodle/index.php/';
 
 /*
 |--------------------------------------------------------------------------
@@ -293,7 +293,7 @@ $config['error_views_path'] = '';
 | application/cache/ directory.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '';
+$config['cache_path'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

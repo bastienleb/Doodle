@@ -5,8 +5,7 @@ class Securite extends CI_Model {
 		session_start();
 
 		if(!isset($_SESSION['auth']) || $_SESSION['auth']!=1){
-			echo "pas bon";
-			header('Location:../');
+			header('Location:../pages');
 		}
 	}
 

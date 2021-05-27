@@ -7,5 +7,5 @@
             <input type="submit" value="Connexion">
         </div>
     </form>
-    <input type="submit" onclick="window.location.href='index.php/inscription'" value="Créer son compte">
+    <input type="submit" onclick="window.location.href='inscription_page'" value="Créer son compte">
 </fieldset> 

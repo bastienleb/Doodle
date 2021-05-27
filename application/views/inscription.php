@@ -7,8 +7,8 @@
 		<label for="prenom">prenom <input type="text" name="prenom" required></label><br>
 		<label for="email">email <input type="email" name="email" required></label><br>
 	
-		<input type="submit" onclick="window.location.href='../index.php'" value='Créer le compte'>
+		<input type="submit" value='Créer le compte'>
 
 	</fieldset>
 </form>
-<input type="submit" onclick="window.location.href='../index.php'" value="login">
+<input type="submit" onclick="window.location.href='connexion_page'" value="login">
