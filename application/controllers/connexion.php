@@ -4,11 +4,28 @@ class Connexion extends CI_Controller {
     public function index(){
         
         $this->load->model('ModeleInscription');
+        $this->load->library('table');
         $login = filter_input(INPUT_POST,"login",FILTER_DEFAULT);
         $password = filter_input(INPUT_POST,"password",FILTER_DEFAULT);
 
-        echo $login." ".$password;
-/*
+        if($login !== NULL  && $password !== NULL){
+            $user['login'] = $login;
+            $user['password'] =$password;
+        }
+        else{
+            $user['login'] = "azertyuiopqsdfghjklmwxcvbn";
+            $user['password'] ="azertyuiopqsdfghjklmwxcvbn";
+        }
+
+
+        $verif=$this->ModeleInscription->RecupLog($user);
+        $data=array('verif'=>$verif);
+
+         
+        $this->load->view('templates/header');
+        $this->load->view('connexion',$data);
+        $this->load->view('templates/footer');
+/*  
         if($login !== NULL  && $password !== NULL){
             $user['login'] = $login;
             $user['password'] =$password;
@@ -28,7 +45,7 @@ class Connexion extends CI_Controller {
                 $message="";
             else
                 $message = "pseudo ou mot de passe incorrect";
-        }*/
+        }
 
         echo $message;
 
@@ -42,7 +59,7 @@ class Connexion extends CI_Controller {
         else{
             $this->load->view('connexion');
         }
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer');*/
     }
 
     public function inscription_page()

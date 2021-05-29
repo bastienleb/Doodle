@@ -1,3 +1,4 @@
+
 <?php
 class ModeleInscription extends CI_Model {
     public function __construct(){
@@ -8,26 +9,17 @@ class ModeleInscription extends CI_Model {
         return $this->db->insert('doodle_user', $data);
     }
 
-    public function checkUser($user){
-        require('Connection.php');
-        $link = Connection::Connect();
-    
-        $login = $user['login'];
-        $password = $user['password'];
+    public  function RecupLog($user) {
+        $this->db-> select('*')->from('doodle_user')->where('login',$user['login']);
+        $query=$this->db->get();
+        return $query->result();
+     }
 
-        if($login=="azertyuiopqsdfghjklmwxcvbn" && $password=="azertyuiopqsdfghjklmwxcvbn"){
-            return FALSE;
-        }
-    
-        $resultat =  mysqli_query($link,"SELECT * FROM user WHERE login ='$login'");
-    
-        if (mysqli_num_rows($resultat) !=1) 
-            return FALSE;
-    
-        $userBD = mysqli_fetch_assoc($resultat);
-        $hash =$userBD['password'];
-    
-        return password_verify($password,$hash);
-    }
+    //  public function VerifLog($user){
+    //      $this->db->select('*')->from('')
+    //  }
+
+     
+     
 }
 ?>
