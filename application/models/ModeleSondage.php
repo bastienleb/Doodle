@@ -10,7 +10,7 @@ class ModeleSondage extends CI_Model {
 
     public function get_sondage($login){
         $this->db->select('*')->from('doodle_sondage')->where('createur',$login);
-        $query= $this->db>get();
+        $query=$this->db->get();
         return $query->result();
     }
      

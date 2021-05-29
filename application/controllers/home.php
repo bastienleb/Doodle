@@ -7,6 +7,7 @@ class Home extends CI_Controller{
         $this->load->model('Securite');
         $this->load->library('form_validation');
         $this->load->model('ModeleSondage');
+        $this->load->library('table');
         Securite::Connect();
         
         $this->form_validation->set_rules('titre', 'titre', 'required|is_unique[doodle_sondage.titre]');
@@ -20,9 +21,7 @@ class Home extends CI_Controller{
         $this->form_validation->set_message('is_unique', '{field} est déjà présent dans la base.');
         
         if ($this->form_validation->run() === FALSE){
-            $this->load->view('templates/header');
-			$this->load->view('page');
-			$this->load->view('templates/footer');
+            
         }
         else{
             $titre = $this->input->post('titre');
@@ -41,17 +40,16 @@ class Home extends CI_Controller{
                 'heure_debut'=>$heure_debut,
                 'heure_fin'=>$heure_fin,
                 'createur'=>$login
-            );
-
-            if	($this->ModeleSondage->addSondage($data)){
-                echo "";
-            }            
-            
-            $this->load->view('templates/header');
-            $this->load->view('page',$deco);
-            $this->load->view('templates/footer');
-            
+            );            
+            $this->ModeleSondage->addSondage($data);
         }
+            
+        $sondages = $this->ModeleSondage->get_sondage($_SESSION['login']);
+        $data_sondage=array('sondages' => $sondages);
+        
+        $this->load->view('templates/header');
+        $this->load->view('page',$data_sondage);
+        $this->load->view('templates/footer');
     }
 }
 
