@@ -8,7 +8,7 @@ class Connexion extends CI_Controller {
         $password = filter_input(INPUT_POST,"password",FILTER_DEFAULT);
 
         echo $login." ".$password;
-
+/*
         if($login !== NULL  && $password !== NULL){
             $user['login'] = $login;
             $user['password'] =$password;
@@ -28,7 +28,7 @@ class Connexion extends CI_Controller {
                 $message="";
             else
                 $message = "pseudo ou mot de passe incorrect";
-        }
+        }*/
 
         echo $message;
 
@@ -47,41 +47,44 @@ class Connexion extends CI_Controller {
 
     public function inscription_page()
 	{
+        $this->load->helper('form');
+		$this->load->library('form_validation');
         $this->load->model('ModeleInscription');
 
-        $login = filter_input(INPUT_POST,"login",FILTER_DEFAULT);
-        $password = filter_input(INPUT_POST,"password",FILTER_DEFAULT);
-        $nom = filter_input(INPUT_POST,"nom",FILTER_DEFAULT);
-        $prenom = filter_input(INPUT_POST,"prenom",FILTER_DEFAULT);
-        $email = filter_input(INPUT_POST,"email",FILTER_VALIDATE_EMAIL);
-        
-        //echo "mail: $email login: $login mdp: $password prenom: $prenom nom: $nom";
-        
-        if($login !== NULL && $email !== NULL && $password !== NULL && 
-           $prenom !== NULL && $nom !== NULL && $email !== FALSE){
-            //rajouter des contrainte
-            $user['login'] = $login;
-            $user['email'] = $email;
-            $user['password'] = $password;
-            $user['nom'] = $password;
-            $user['prenom'] = $password;
-            
-            
-            
-            if(ModeleInscription :: addUser($user)){
-                $message = "Compte créé !";
-                $login = $email = $password = $prenom = $nom =" ";
-            }else{
-                $message = "Donnée non valide";
-            }
-            
-            echo $message;
+        $this->form_validation->set_rules('login', 'login', 'required|is_unique[doodle_user.login]');
+		$this->form_validation->set_rules('password', 'password', 'required|trim');
+        $this->form_validation->set_rules('nom', 'nom', 'required|trim');
+		$this->form_validation->set_rules('prenom', 'prenom', 'required|trim');
+		$this->form_validation->set_rules('email', 'email', 'valid_email|trim');
+
+        $this->form_validation->set_message('is_unique', '{field} est déjà présent dans la base.');
+
+
+        if ($this->form_validation->run() === FALSE){
+            $this->load->view('templates/header');
+			$this->load->view('inscription');
+			$this->load->view('templates/footer');
         }
-        
-		$this->load->view('templates/header');
-        $this->load->view('inscription');
-        $this->load->view('templates/footer');
-	}
+        else{
+            $login = $this->input->post('login');
+            $password = $this->input->post('password');
+            $nom = $this->input->post('nom');
+            $prenom = $this->input->post('prenom');
+            $email = $this->input->post('email');
+            
+            $data=array(
+                'login'=>$login,
+                'password'=> password_hash($password,PASSWORD_DEFAULT),
+                'nom'=>$nom,
+                'prenom'=>$prenom,
+                'email'=>$email
+            );
+            
+            if	($this->ModeleInscription->addUser($data)){
+                header('Location:../connexion');
+            }
+        }
+    }
 
     
      

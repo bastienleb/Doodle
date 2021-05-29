@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://dwarves.iut-fbleau.fr/~leblet/projet_doodle/';
+$config['base_url'] = '/~leblet/projet_doodle/';
 
 /*
 |--------------------------------------------------------------------------
