@@ -1,4 +1,3 @@
-
 <?php
 class ModeleInscription extends CI_Model {
     public function __construct(){
@@ -13,13 +12,7 @@ class ModeleInscription extends CI_Model {
         $this->db-> select('*')->from('doodle_user')->where('login',$user['login']);
         $query=$this->db->get();
         return $query->result();
-     }
-
-    //  public function VerifLog($user){
-    //      $this->db->select('*')->from('')
-    //  }
-
-     
+    } 
      
 }
 ?>

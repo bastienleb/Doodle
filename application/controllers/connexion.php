@@ -25,46 +25,11 @@ class Connexion extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('connexion',$data);
         $this->load->view('templates/footer');
-/*  
-        if($login !== NULL  && $password !== NULL){
-            $user['login'] = $login;
-            $user['password'] =$password;
-        }
-        else{
-            $user['login'] = "azertyuiopqsdfghjklmwxcvbn";
-            $user['password'] ="azertyuiopqsdfghjklmwxcvbn";
-        }
 
-        if(ModeleInscription :: checkUser($user)){
-            $message="";
-            $tmp=1;
-            $login = $email = $password = $prenom = $nom =" ";
-        }else{
-            $tmp=0;
-            if($user['login'] =="azertyuiopqsdfghjklmwxcvbn" && $user['password']=="azertyuiopqsdfghjklmwxcvbn")
-                $message="";
-            else
-                $message = "pseudo ou mot de passe incorrect";
-        }
-
-        echo $message;
-
-        $this->load->view('templates/header');
-        if($tmp==1){
-            session_start();
-            $_SESSION['auth']= 1;
-            $_SESSION['login']=$user['login'];
-            header('Location:../home/jeux');
-        }
-        else{
-            $this->load->view('connexion');
-        }
-        $this->load->view('templates/footer');*/
     }
 
     public function inscription_page()
 	{
-        $this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->model('ModeleInscription');
 
