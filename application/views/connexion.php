@@ -1,13 +1,13 @@
-<fieldset >
+<fieldset class="connexion">
     <form method="POST">
         <div class="formulaire">
-            <label for="login">login <input type="text" id="nom" name="login" required></label><br>
+            <label for="login">Login <input type="text" id="nom" name="login" required></label><br>
             <label for="password">Password <input type="password" id="password" name="password" required></label><br>
             <br>
-            <input type="submit" value="Connexion">
+            <input type="submit" value="Connexion" class="bouton">
         </div>
     </form>
-    <input type="submit" onclick="window.location.href='connexion/inscription_page'" value="Créer son compte">
+    <input type="submit" onclick="window.location.href='inscription_page'" value="Créer son compte" class="bouton">
 </fieldset> 
 
 <?php
