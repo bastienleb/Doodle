@@ -44,6 +44,7 @@ class Home extends CI_Controller{
                 'createur'=>$login
             );            
             $this->ModeleSondage->addSondage($data);
+            echo"<script type='text/javascript'> alert('Sondage créer'); </script>";
         }
             
         $sondages = $this->ModeleSondage->get_sondage($_SESSION['login']);

@@ -7,9 +7,12 @@ class Admin extends CI_Controller {
 
         Securite::Connect();
 
+        $titres = $this->ModeleUser->get_titre();
+        $data=array('titres' => $titres);
+
 
         $this->load->view('templates/header');
-        $this->load->view('page_admin');
+        $this->load->view('page_admin',$data);
         $this->load->view('templates/footer');
 
     }
