@@ -13,9 +13,7 @@ fieldset{
     box-shadow: 10px 5px 5px rgb(130, 139, 139);
 }
 
-input[type=text]:focus {
-    border: 3px solid #555;
-  }
+
 
   input{
     width: 100%;
@@ -28,6 +26,19 @@ input[type=text]:focus {
     font-size: 100%;
     font-size: 100%;
   }
+
+  input[type="submit"] {
+    cursor: pointer;
+    margin: 0;
+    width: 50%;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+ 
+  
 /* ------------------------ Connexion.php ------------*/
 
 .connexion{
@@ -85,9 +96,7 @@ input[type=text]:focus {
    transform: translateX(-50%)translateY(20%);
    align-items: center;
 }
-input[type=text]:focus {
-    border: 3px solid #555;
-  }
+
 
   input{
     width: 100%;
@@ -103,7 +112,7 @@ input[type=text]:focus {
 
 .bouton2 {
     /* display: inline-block; */
-    background-color: blanchedalmond;
+    background-color: red;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeeeee;
@@ -135,7 +144,7 @@ input[type=text]:focus {
 .creer_sondage{
     border-radius: 1em;
     border: solid 3px;
-    width: 50%;
+    width: 40%;
     height: 90%;
     position: relative;
     top: 50%;
@@ -143,9 +152,7 @@ input[type=text]:focus {
    transform: translateX(-50%)translateY(-10%);
    align-items: center;
 }
-input[type=text]:focus {
-    border: 3px solid #555;
-  }
+
 
   input{
     width: 100%;
@@ -172,7 +179,7 @@ input[type=text]:focus {
     transition: all 0.5s;
     cursor: pointer;
     margin: 0px;
-    transform: translateX(100%)translateY(-0%);
+    transform: translateX(50%);
     }
 
 
@@ -200,11 +207,12 @@ input[type=text]:focus {
     padding: 0px;
     width: 50%;
     margin: 0px;
-    cursor: pointer;
+    transform: translateX(50%)translateY(-10%);
+
 }
 
-.former_sondage{
-}
+
+
 
 
 
@@ -246,18 +254,18 @@ input{
 
 
 
-p {
+.bouton_copier {
     font-family: sans-serif;
     background: #eee;
     padding: 0.5rem;
     border: 2px solid #eee;
 }
-p span {
+.bouton_copier  {
     border: 2px solid #ccc;
     padding: 0.5rem;
     background: #fff;
 }
-p .js-copy {
+.bouton_copier .js-copy {
     background: hotpink;
     color: white;
     padding: 0.5rem;

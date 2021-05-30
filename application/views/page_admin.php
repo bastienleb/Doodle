@@ -19,7 +19,7 @@
   </fieldset>
 </form>
 
-<p>
+<p class="bouton_copier">
     Copiez cette adresse : <a id="tocopy">http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?></a>
     <input type="button" value="Copier" class="js-copy" data-target="#tocopy">
 </p>
