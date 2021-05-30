@@ -13,7 +13,8 @@ if(isset($_GET['deco'])){
         <label for="titre">Titre <input type="text" name="titre" required></label><br>
         <label for="lieu">Lieu <input type="text" name="lieu" required></label><br>
         <label for="descriptif">Descriptif <input type="text" name="descriptif" required></label><br>
-        <label for="date">Date <input type="date" name="date" required></label><br>
+        <label for="date_debut">Date début <input type="date" name="date_debut" required></label><br>
+        <label for="date_fin">Date fin <input type="date" name="date_fin" required></label><br>
         <label for="heure_debut">Heure début<input type="time" name="heure_debut" required></label>
         <label for="heure_fin">Heure fin <input type="time" name="heure_fin" required></label><br>
         <input type="hidden" name="login" value='<?php echo($_SESSION['login'])?>'class="bouton3" required></label>
@@ -25,19 +26,13 @@ if(isset($_GET['deco'])){
 <div class="affi_sondage">
     <fieldset>
         <?php
-
-        $this->table->set_heading(array('Sondage créer'));
-
-        $template = array('table_open'=> '<table>');
-
-        $this->table->set_template($template);
+        echo "<h3>Sondage créer</h3>";
 
         foreach($sondages as $sondage){
-            $this->table->add_row(
-                $sondage->titre
-            );
+                echo form_open('admin/participant',array('method'=>'get'));
+                echo form_submit("titre",$sondage->titre);
+                echo form_close();
         }   
-        echo $this->table->generate();
         ?>
     </fieldset>
 </div>

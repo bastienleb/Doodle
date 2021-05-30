@@ -13,7 +13,8 @@ class Home extends CI_Controller{
         $this->form_validation->set_rules('titre', 'titre', 'required|is_unique[doodle_sondage.titre]');
 		$this->form_validation->set_rules('lieu', 'lieu', 'required|trim');
         $this->form_validation->set_rules('descriptif', 'descriptif', 'required|trim');
-		$this->form_validation->set_rules('date', 'date', 'required|trim');
+		$this->form_validation->set_rules('date_debut', 'date_debut', 'required|trim');
+        $this->form_validation->set_rules('date_fin', 'date_fin', 'required|trim');
 		$this->form_validation->set_rules('heure_debut', 'heure_debut', 'required|trim');
         $this->form_validation->set_rules('heure_fin', 'heure_fin', 'required|trim');
         $this->form_validation->set_rules('login', 'login', 'required|trim');
@@ -21,13 +22,14 @@ class Home extends CI_Controller{
         $this->form_validation->set_message('is_unique', '{field} est déjà présent dans la base.');
         
         if ($this->form_validation->run() === FALSE){
-            
+            echo "émarceh po";
         }
         else{
             $titre = $this->input->post('titre');
             $lieu = $this->input->post('lieu');
             $descriptif = $this->input->post('descriptif');
-            $date = $this->input->post('date');
+            $date_debut = $this->input->post('date_debut');
+            $date_fin = $this->input->post('date_fin');
             $heure_debut = $this->input->post('heure_debut');
             $heure_fin = $this->input->post('heure_fin');
             $login = $this->input->post('login');
@@ -36,7 +38,8 @@ class Home extends CI_Controller{
                 'titre'=>$titre,
                 'lieu'=> $lieu,
                 'descriptif'=>$descriptif,
-                'date'=>$date,
+                'date_debut'=>$date_debut,
+                'date_fin'=>$date_fin,
                 'heure_debut'=>$heure_debut,
                 'heure_fin'=>$heure_fin,
                 'createur'=>$login
