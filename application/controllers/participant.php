@@ -8,9 +8,12 @@ class Participant extends CI_Controller {
         
         Securite::Connect();
 
+        $titres = $this->ModeleUser->get_titre();
+        $data=array('titres' => $titres);
+
 
         $this->load->view('templates/header');
-        $this->load->view('participant');
+        $this->load->view('participant',$data);
         $this->load->view('templates/footer');
     } 
 }

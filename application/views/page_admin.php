@@ -20,7 +20,7 @@
 </form>
 
 <p>
-    Copiez cette adresse : <a id="tocopy">http://localhost/~leblet/projet_doodle/index.php/participant/choix/<?php echo $_GET['cle'];?></a>
+    Copiez cette adresse : <a id="tocopy">http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?></a>
     <input type="button" value="Copier" class="js-copy" data-target="#tocopy">
 </p>
 
