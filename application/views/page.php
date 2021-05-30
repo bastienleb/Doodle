@@ -23,20 +23,19 @@ if(isset($_GET['deco'])){
     </fieldset>
 </div>
 
-<div class="affi_sondage">
-    <fieldset>
+    <fieldset class='liste_sondage_user'>
         <?php
-        echo "<h3>Sondage créer</h3>";
+        echo "  <legend>Sondage créer  </legend>";
 
         foreach($sondages as $sondage){
             echo form_open('admin/resultat',array('method'=>'get'));
             echo form_hidden('cle',hash("ripemd160",$sondage->titre));
-            echo form_submit("",$sondage->titre);
+            echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."</p>";
             echo form_close();
         }   
         ?>
     </fieldset>
-</div>
+
 <br>
 
 <form method="get">

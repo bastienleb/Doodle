@@ -37,14 +37,6 @@ foreach ($verif as $v){
 
 }
 
-// if($tmp==1){
-//     session_start();
-//     $_SESSION['auth']= 1;
-//     $_SESSION['login']=$user['login'];
-//     header('Location:../home/jeux');
-   
-// }
-
 
 
 ?>
