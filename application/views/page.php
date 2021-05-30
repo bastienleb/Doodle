@@ -17,7 +17,7 @@ if(isset($_GET['deco'])){
         <label for="heure_debut">Heure début<input type="time" name="heure_debut" required></label>
         <label for="heure_fin">Heure fin <input type="time" name="heure_fin" required></label><br>
         <input type="hidden" name="login" value='<?php echo($_SESSION['login'])?>'class="bouton3" required></label>
-        <input type="submit" value="créer le sondage" class="bouton3">
+        <input type="submit" value="Créer le sondage"  onclick="window.location.href='page_admin.php'" class="bouton3">
     </form>
     </fieldset>
 </div>

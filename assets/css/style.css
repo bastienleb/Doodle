@@ -162,7 +162,7 @@ input[type=text]:focus {
     font-size: 100%;
   }
 
-.bouton2 {
+.bouton3 {
     /* display: inline-block; */
     background-color: red;
     border-radius: 10px;
@@ -179,14 +179,50 @@ input[type=text]:focus {
     }
 
 
-.bouton2 :after {
+.bouton3 :after {
     /* content: '\00bb'; */
     position: absolute;
     transition: 0.5s;
 }
-.bouton2:hover {
+.bouton3:hover {
     background-color: #f7c2f9;
 }
-.bouton2:hover:after {
+.bouton3:hover:after {
     opacity: 1;
 }
+
+
+/* --------------- Page Admin ------------- */
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+} 
+
+.liste_participant{
+    border-radius: 1em;
+    border: solid 3px;
+    width: 30%;
+    height: 30%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+   transform: translateX(-150%)translateY(-0%);
+   align-items: center;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+  input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid ;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-size: 100%;
+    font-size: 100%;
+  }
