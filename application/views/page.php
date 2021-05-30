@@ -29,8 +29,9 @@ if(isset($_GET['deco'])){
         echo "<h3>Sondage créer</h3>";
 
         foreach($sondages as $sondage){
-                echo form_open('admin/participant',array('method'=>'get'));
-                echo form_submit("titre",$sondage->titre);
+                echo form_open('admin/resultat',array('method'=>'get'));
+                echo form_hidden('cle',crypt($sondage->titre,''));
+                echo form_submit("",$sondage->titre);
                 echo form_close();
         }   
         ?>

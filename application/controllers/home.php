@@ -22,7 +22,6 @@ class Home extends CI_Controller{
         $this->form_validation->set_message('is_unique', '{field} est déjà présent dans la base.');
         
         if ($this->form_validation->run() === FALSE){
-            echo "émarceh po";
         }
         else{
             $titre = $this->input->post('titre');
