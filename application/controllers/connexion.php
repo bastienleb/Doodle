@@ -63,7 +63,7 @@ class Connexion extends CI_Controller {
             );
             
             if	($this->ModeleInscription->addUser($data)){
-                header('Location:../connexion');
+                header('Location:../connexion/');
             }
         }
     }
