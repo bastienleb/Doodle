@@ -9,7 +9,8 @@ class ModeleInscription extends CI_Model {
     }
 
     public  function RecupLog($user) {
-        $this->db-> select('*')->from('doodle_user')->where('login',$user['login']);
+        $this->db-> select('*')->from('doodle_user');
+        $this->db->where('login',$user['login']);
         $query=$this->db->get();
         return $query->result();
     } 

@@ -4,6 +4,7 @@ if(isset($_GET['deco'])){
     Securite::Deconnect();
     header('Location:../connexion/');
 }
+
 ?>
 <h1>Selection de sondage </h1>
 
@@ -13,8 +14,8 @@ if(isset($_GET['deco'])){
         <label for="titre">Titre <input type="text" name="titre" required></label><br>
         <label for="lieu">Lieu <input type="text" name="lieu" required></label><br>
         <label for="descriptif">Descriptif <input type="text" name="descriptif" required></label><br>
-        <label for="date_debut">Date début <input type="date" name="date_debut" required></label><br>
-        <label for="date_fin">Date fin <input type="date" name="date_fin" required></label><br>
+        <label for="date_debut">Date début <input type="date" min="<?php echo date('Y-m-d'); ?>" name="date_debut"  required></label><br>
+        <label for="date_fin">Date fin <input type="date" min="<?php echo date('Y-m-d',strtotime('+1 day')); ?>" name="date_fin" required></label><br>
         <label for="heure_debut">Heure début<input type="time" name="heure_debut" required></label>
         <label for="heure_fin">Heure fin <input type="time" name="heure_fin" required></label><br>
         <input type="hidden" name="login" value='<?php echo($_SESSION['login'])?>'class="bouton3" required></label>
@@ -35,7 +36,7 @@ if(isset($_GET['deco'])){
         }   
         ?>
     </fieldset>
-
+    
 <br>
 
 <form method="get">

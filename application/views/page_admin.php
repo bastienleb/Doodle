@@ -24,6 +24,8 @@
     <input type="button" value="Copier" class="js-copy" data-target="#tocopy">
 </p>
 
+<a href="../home/jeux">retour</a>
+
 <script type="text/javascript">
         var btncopy = document.querySelector('.js-copy');
     if(btncopy) {

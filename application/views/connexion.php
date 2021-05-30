@@ -14,27 +14,23 @@
 $this->table->set_heading(array('login', 'password',''));
 
 
-
 $t=array('table_open'=>'<table>');
 $this->table->set_template($t);
 
 $tmp=0;
 foreach ($verif as $v){
-    $tmp=1;
-    $this->table->add_row(
-        $v->login,
-        $v->password,
-        $tmp
-    );
-
+   
+   if($v->login == $_POST['login'] && password_verify($_POST['password'],$v->password)){
+       $tmp=1;
+    }
+    
     if($tmp==1){
         session_start();
         $_SESSION['auth']= 1;
         $_SESSION['login']=$v->login;
         header('Location:../home/jeux');
-       
+        
     }
-
 }
 
 
