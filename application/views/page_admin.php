@@ -7,8 +7,9 @@
 </form>
 
 <?php
-
-
-
+echo 'le titre ';
+echo $_GET['cle']."<br>";
+echo 'le titre ';
+echo $_GET[''];
 
 ?>

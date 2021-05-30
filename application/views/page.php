@@ -30,7 +30,7 @@ if(isset($_GET['deco'])){
 
         foreach($sondages as $sondage){
                 echo form_open('admin/resultat',array('method'=>'get'));
-                echo form_hidden('cle',crypt($sondage->titre,''));
+                echo form_hidden('cle',hash("ripemd160",$sondage->titre));
                 echo form_submit("",$sondage->titre);
                 echo form_close();
         }   
