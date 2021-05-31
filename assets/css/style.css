@@ -137,36 +137,70 @@ input[type=text]:focus {
 }
 
 /* ------------- Page Sondage ----------------*/
+.titre{
+    text-align: center;
+}
 
-.creer_sondage{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%)translateY(-50%);
 
+.creer_sondage, .liste_sondage_user{
     border-radius: 1em;
     border: solid 3px;
     width: 40%;
-    height: 90%;
+    height: 75%;
     align-items: center;
     background-color: blanchedalmond;
 }
 
+.creer_sondage{
+    position: relative;
+    top: 39%;
+    left: 10%;
+    transform: translateX(-10%)translateY(-50%);
+    text-align: right;
+}
 
-input{
-    width: 100%;
+.creer_sondage label{
+    font-size:29px ;
+}
+
+.creer_sondage input{
+    width: 80%;
     padding: 12px;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 10px;
     margin-bottom: 14px;
-    font-size: 100%;
-    font-size: 100%;
 }
 
+
+.creer_sondage input[type=submit]{
+    transform: translateX(-10%);
+    text-align: center;
+}
+
+.creer_sondage legend, .liste_sondage_user legend{
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.liste_sondage_user{
+    position: relative;
+    left:90%;
+    text-align: center;
+    transform: translateX(-90%)translateY(-100%);
+    
+    overflow: auto;
+}
+
+.liste_sondage_user input{
+    width: 80%;
+}
+
+
 .bouton3 {
-    /* display: inline-block; */
     background-color: red;
     border-radius: 10px;
     border: 4px double #cccccc;
@@ -179,12 +213,9 @@ input{
     cursor: pointer;
     margin: 0px;
     transform: translateX(50%);
-    }
-
+}
 
 .bouton3 :after {
-    /* content: '\00bb'; */
-    position: absolute;
     transition: 0.5s;
 }
 .bouton3:hover {
@@ -195,19 +226,7 @@ input{
 }
 
 
-.liste_sondage_user{
-    position: relative;
-    top: 45%;
-    left:50%;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 20px;
-    padding: 0px;
-    width: 50%;
-    margin: 0px;
-    margin-bottom: 50px;
-    transform: translateX(-50%)translateY(-50%);
-}
+
 
 /* --------------- Page Admin ------------- */
 

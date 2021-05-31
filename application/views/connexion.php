@@ -32,11 +32,7 @@
 </fieldset> 
 
 <?php
-$this->table->set_heading(array('login', 'password',''));
 
-
-$t=array('table_open'=>'<table>');
-$this->table->set_template($t);
 
 $tmp=0;
 foreach ($verif as $v){

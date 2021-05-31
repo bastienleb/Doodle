@@ -62,8 +62,9 @@ class Home extends CI_Controller{
                 'heure_fin'=>$heure_fin,
                 'createur'=>$login
             );            
-            $this->ModeleSondage->addSondage($data);
-            echo"<script type='text/javascript'> alert('Sondage créer'); </script>";
+            if($this->ModeleSondage->addSondage($data)){
+                header("Location:../admin/resultat?cle=".hash('ripemd160',$titre));
+            }
         }
             
         $sondages = $this->ModeleSondage->get_sondage($_SESSION['login']);
