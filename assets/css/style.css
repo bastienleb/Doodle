@@ -7,32 +7,7 @@ fieldset{
     font-size: 25px;
     box-shadow: 10px 5px 5px rgb(130, 139, 139);
 }
-
-input{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid ;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 14px;
-    font-size: 100%;
-    font-size: 100%;
-}
-
-input[type="submit"] {
-    cursor: pointer;
-    margin: 0;
-    width: 50%;
-}
-
-input[type=text]:focus {
-    border: 3px solid #555;
-  }
-
- 
-  
-/* ------------------------ Connexion.php ------------*/
+/* -------------------- Connexion.php -------------------- */
 
 .connexion{
     background-color: blanchedalmond;
@@ -48,8 +23,7 @@ input[type=text]:focus {
 }
 
 .bouton {
-    /* display: inline-block; */
-    background-color: red;
+    background-color: blue;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeeeee;
@@ -61,80 +35,64 @@ input[type=text]:focus {
     cursor: pointer;
     margin: 0px;
     transform: translateX(50%)translateY(-0%);
-    }
-
-
-.bouton :after {
-    /* content: '\00bb'; */
-    position: absolute;
-    transition: 0.5s;
 }
+
 .bouton:hover {
     background-color: #f7c2f9;
 }
-.bouton:hover:after {
-    opacity: 1;
-}
 
 
-/* -------------------- Inscription -------*/
+/* -------------------- Inscription -------------------- */
 
 .inscription{
     background-color: blanchedalmond;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
-    height: 65%;
+    height: 50%;
     position: relative;
     top: 50%;
     left: 50%;
-   transform: translateX(-50%)translateY(20%);
-   align-items: center;
+    transform: translateX(-50%)translateY(-50%);
+    text-align: right;
 }
 
-
-  input{
-    width: 100%;
+.inscription input{
+    text-align: center;
+    width: 80%;
     padding: 12px;
     border: 1px solid ;
     border-radius: 4px;
-    box-sizing: border-box;
     margin-top: 10px;
     margin-bottom: 14px;
     font-size: 100%;
-    font-size: 100%;
-  }
+}
+
+.inscription input[type=submit]{
+    transform: translateX(-10%);
+    text-align: center;
+}
 
 .bouton2 {
-    background-color: red;
+    background-color: rebeccapurple;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeeeee;
-    text-align: center;
-    font-size: 35px;
     padding: 3px;
-    width: 50%;
+    width: 100%;
     transition: all 0.5s;
-    cursor: pointer;
-    margin: 0px;
-    transform: translateX(50%)translateY(-0%);
-    }
-
+    cursor: pointer; 
+}
 
 .bouton2 :after {
-    /* content: '\00bb'; */
     position: absolute;
     transition: 0.5s;
 }
 .bouton2:hover {
     background-color: #f7c2f9;
 }
-.bouton2:hover:after {
-    opacity: 1;
-}
 
-/* ------------- Page Sondage ----------------*/
-
+/* -------------------- Page Sondage -------------------- */
 
 .connected{
     transform: translateY(-75%);
@@ -158,11 +116,10 @@ input[type=text]:focus {
 .btn_bar{
     position: relative;
     left:92%;
-    width: 15%;
-    transform:translateY(-245%);
+    width: 10%;
+    transform:translateY(-265%) translateX(-25%);
 
 }
-
 
 .creer_sondage, .liste_sondage_user{
     border-radius: 1em;
@@ -255,7 +212,7 @@ input[type=text]:focus {
 }
 
 
-/* --------------- Page Admin ------------- */
+/* -------------------- Page Admin -------------------- */
 
 legend {
     background-color: #000;
@@ -323,7 +280,7 @@ input{
     border-top:18px solid transparent;
 }
 
-/* --------------- Page Partipant ----------- */
+/* -------------------- Page Partipant -------------------- */
 
 caption /* Titre du tableau */
 {

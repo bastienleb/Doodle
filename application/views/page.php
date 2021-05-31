@@ -28,9 +28,9 @@
     }
 
     ?>
-    <form method="get" class="btn_bar">
+    <form method="get" >
         <input type="hidden" name="deco" value="1">
-        <input type="submit" value="deconnection">
+        <input type="submit" value="deconnection" class="btn_bar">
     </form>
   
 </div>
