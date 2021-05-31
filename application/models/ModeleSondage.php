@@ -13,6 +13,11 @@ class ModeleSondage extends CI_Model {
         $query=$this->db->get();
         return $query->result();
     }
+
+    public function sup_sondage($titre){
+        echo "supprimer avec pour titre $titre";
+        return $this->db->where('titre', $titre)->delete('doodle_sondage');
+    }
      
 }
 ?>

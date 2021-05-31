@@ -3,17 +3,15 @@
     <legend>Liste des participants  </legend>
 
     <?php
-    echo 'le titre ';
-    echo $_GET['cle']."<br>";
-    echo 'le titre ';
-
     foreach($titres as $titre){
       $titre_hash= hash("ripemd160",$titre->titre);
       
       if($_GET['cle']==$titre_hash){
-        echo $titre->titre;  
+        echo $titre->titre; 
+        echo "<a href='delete/$titre->titre'>supprimer</a>";
       }
     }   
+
 
     ?>
   </fieldset>
