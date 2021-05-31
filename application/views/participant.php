@@ -25,8 +25,6 @@
 <table>
 <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
-    $rdv["Dimanche"]["16:30"] = "";
-    $rdv["Lundi"]["9"] = "";
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
