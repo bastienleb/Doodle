@@ -2,10 +2,6 @@ a{
     text-decoration: none;
 }
 
-body{
-    background-color:antiquewhite;
-}
-
 
 fieldset{
     font-size: 25px;
@@ -39,6 +35,7 @@ input[type=text]:focus {
 /* ------------------------ Connexion.php ------------*/
 
 .connexion{
+    background-color: blanchedalmond;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -83,6 +80,7 @@ input[type=text]:focus {
 /* -------------------- Inscription -------*/
 
 .inscription{
+    background-color: blanchedalmond;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -108,7 +106,6 @@ input[type=text]:focus {
   }
 
 .bouton2 {
-    /* display: inline-block; */
     background-color: red;
     border-radius: 10px;
     border: 4px double #cccccc;
@@ -137,8 +134,33 @@ input[type=text]:focus {
 }
 
 /* ------------- Page Sondage ----------------*/
+
+
+.connected{
+    transform: translateY(-75%);
+}
+
 .titre{
     text-align: center;
+    transform:translateY(-200%);
+}
+
+.bar{
+    padding: 1em;
+    background-color: blanchedalmond;
+    height: 2em;
+    width: 100%;
+    margin-left: -1em;
+    margin-bottom: 2em;
+    border:solid 2px;
+}
+
+.btn_bar{
+    position: relative;
+    left:92%;
+    width: 15%;
+    transform:translateY(-245%);
+
 }
 
 
@@ -147,6 +169,8 @@ input[type=text]:focus {
     border: solid 3px;
     width: 40%;
     height: 75%;
+    min-width: 40%;
+    min-height: 75%;
     align-items: center;
     background-color: blanchedalmond;
 }
@@ -225,7 +249,10 @@ input[type=text]:focus {
     opacity: 1;
 }
 
-
+.contenu{
+    width: 100%;
+    min-width: 100%;
+}
 
 
 /* --------------- Page Admin ------------- */
@@ -237,6 +264,7 @@ legend {
 } 
 
 .liste_participant{
+    background-color: blanchedalmond;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -309,6 +337,7 @@ caption /* Titre du tableau */
 
 table /* Le tableau en lui-même */
 {
+    background-color: blanchedalmond;
     margin: auto; /* Centre le tableau */
     border: 4px outset green; /* Bordure du tableau avec effet 3D (outset) */
     border-collapse: collapse; /* Colle les bordures entre elles */
@@ -341,4 +370,10 @@ td.time
     border:none;
     text-decoration: none;
     color: black;
+    background-color: blanchedalmond;
+}
+
+.btn_choix:hover{
+    cursor: pointer;
+    background-color: rebeccapurple;
 }

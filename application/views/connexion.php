@@ -32,7 +32,7 @@
 </fieldset> 
 
 <?php
-
+    
 
 $tmp=0;
 foreach ($verif as $v){

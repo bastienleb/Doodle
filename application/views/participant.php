@@ -30,6 +30,7 @@
 <?php
     foreach($titres as $titre){
         $titre_hash= hash("ripemd160",$titre->titre);
+        $test;
         
         if($_GET['cle']==$titre_hash){
             $date_deb=date("l d-m-Y", strtotime($titre->date_debut));
@@ -65,8 +66,29 @@
                     }
                     for($k=0 ; $k<= $totd ; $k++){
                         for($o=0 ; $o<=$j ; $o++){
-                            $rdv[$jour[$k]][$o.":30"] = "<a href='#' class='btn_choix'> Choisir</a>";
-                            $rdv[$jour[$k]][$j] = "<a href='#' class='btn_choix'> Choisir</a>";
+                            $choix=array(null);
+                            $rdv[$jour[$k]][$o.":30"] ="<input class='btn_choix' type='button' value='choisir' onclick='help1($o,$k)'>";
+                            
+                            
+                                                        /*" <form method='POST'>
+                                                            <input type='hidden' value='$jour[$k]' name='jour' >
+                                                            <input type='hidden' value='$heure' name='heure'>
+                                                            <input type='submit' class='btn_choix' value='Choisir'>
+                                                        </form>";*/
+
+                            $rdv[$jour[$k]][$j] =  "<input class='btn_choix' type='button' value='choisir' onclick='help2($o,$k)'>";
+                            
+                            
+                                                    /*" <form method='POST'>
+                                                        <input type='hidden' value='$jour[$k]' name='jour' >
+                                                        <input type='hidden' value='$heure' name='heure'>
+                                                        <input type='submit' class='btn_choix' value='Choisir'>
+                                                    </form>";*/
+
+
+
+
+
                         }
                     }
                     echo "<td>";
@@ -84,3 +106,14 @@
 ?>
 </table>
 
+
+<script type="text/javascript">
+    function help1(heure,jours){
+        alert(heure+":30 le "+jours);
+        return jours;
+    }
+
+    function help2(heure,jours){
+        alert(heure+"h  le "+jours);
+    }
+</script>
