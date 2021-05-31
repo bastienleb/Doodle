@@ -151,7 +151,7 @@ input[type=text]:focus {
     width: 40%;
     height: 90%;
     position: relative;
-    top: 50%;
+     top: 50%;
     left: 50%;
    transform: translateX(-50%)translateY(-10%);
    align-items: center;
