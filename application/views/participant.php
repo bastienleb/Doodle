@@ -18,14 +18,11 @@
             $totd=1;
             $jour = array(null,$date_deb);
             while(!($date==$date_finn)){
-                $totd++;
                 $date = date("l d-m-Y", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
-                $add = array($totd+2=>$date);
+                $add = array($totd+1=>$date);
                 $adddeb = array(1=>$date_deb);
                 $jour = array_replace($jour,$add,$adddeb);
-            }
-            if($date==$date_finn && $totd==0){
-                $totd=1;
+                $totd++;
             }
             echo "<tr><th>Heure</th>";
             for($x = 1; $x < $totd+1; $x++)
