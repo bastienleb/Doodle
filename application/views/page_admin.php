@@ -17,12 +17,14 @@
   </fieldset>
 </form>
 
-<p class="bouton_copier">
-    Copiez cette adresse : <a id="tocopy">http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?></a>
+<p class="bouton3">
+    Copiez cette adresse : <a id="tocopy">http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a>
     <input type="button" value="Copier" class="js-copy" data-target="#tocopy">
 </p>
 
-<a href="../home/jeux">retour</a>
+
+
+<a class="bouton3" href="../home/jeux">retour</a>
 
 <script type="text/javascript">
         var btncopy = document.querySelector('.js-copy');

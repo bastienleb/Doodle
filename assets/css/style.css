@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+}
+
 body{
     background-color:antiquewhite;
 }
@@ -151,6 +155,7 @@ input[type=text]:focus {
     left: 50%;
    transform: translateX(-50%)translateY(-10%);
    align-items: center;
+   /* display: -webkit-flex; */
 }
 
 
@@ -272,6 +277,21 @@ input{
     border: 2px solid rebeccapurple;
     font-size: inherit;
 }
+
+.essai.prev::before {
+    content:"";
+    position:absolute;left:-25px;top:0;
+    
+    /* taille */  
+    height:0;width:0; 
+    
+    /* les bordures */
+    border-right:36px solid #AAAAAA;
+    border-bottom:18px solid transparent;
+    border-top:18px solid transparent;
+    }
+
+
 
 /* --------------- Page Partipant ----------- */
 
