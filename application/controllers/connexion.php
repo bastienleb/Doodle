@@ -23,7 +23,7 @@ class Connexion extends CI_Controller {
     public function index(){
         
         $this->load->model('ModeleInscription');
-        $this->load->library('table');
+        
         $login = filter_input(INPUT_POST,"login",FILTER_DEFAULT);
         $password = filter_input(INPUT_POST,"password",FILTER_DEFAULT);
 

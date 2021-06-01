@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 ###########################################################################
@@ -18,43 +18,22 @@
 #                                                                         #
 ###########################################################################
 */
-class Participant extends CI_Controller {
+class Securite_participant extends CI_Model {
 
-    public function choix(){
-        $this->load->model('Securite');
-        $this->load->model('ModeleUser');
-        $this->load->model('ModeleResultat');
+	public static function Connect(){
+		session_start();
+        $test= $_GET['cle'];
 
-        Securite::Connect();
+		if(!isset($_SESSION['auth']) || $_SESSION['auth']!=1){
+			header('Location:../connexion/');
+		}
+        else {
+            header("Location:../participant/choix?cle=$test");
+        }
+	}
 
-        $titres = $this->ModeleUser->get_titre();
-        $data=array('titres' => $titres);
-        
-        //echo $_POST['jour']." ".$_POST['heure']."<br>";
-
-        $login =$_SESSION['login'];
-        $jour = date("Y-d-m", strtotime($this->input->post('jour')));
-        $heure = $this->input->post('heure');
-        $titre = $this->input->post('titre');
-
-        $data_sondage=array(
-            'login'=>$login,
-            'jour'=> $jour,
-            'heure'=>$heure,
-            'titre_sondage'=>$titre
-        );
-        
-        
-        $creneaux =$this->ModeleResultat->addresultat($data_sondage);
-        $add_data=array('creneaux' => $creneaux);
-
-        $data=array_replace($data,$add_data);
-
-        
-
-
-        $this->load->view('templates/header');
-        $this->load->view('participant',$data);
-        $this->load->view('templates/footer');
-    } 
+	public static function Deconnect(){
+		session_destroy();
+	}
 }
+?>

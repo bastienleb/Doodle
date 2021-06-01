@@ -130,6 +130,7 @@ fieldset{
     min-height: 75%;
     align-items: center;
     background-color: blanchedalmond;
+    overflow: auto;
 }
 
 .creer_sondage{
@@ -172,8 +173,6 @@ fieldset{
     left:90%;
     text-align: center;
     transform: translateX(-90%)translateY(-100%);
-    
-    overflow: auto;
 }
 
 .liste_sondage_user input{

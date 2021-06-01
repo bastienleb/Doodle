@@ -39,17 +39,15 @@ foreach ($verif as $v){
    
    if($v->login == $_POST['login'] && password_verify($_POST['password'],$v->password)){
        $tmp=1;
+       echo $v->login." ".$v->password."<br>";
+       echo $_POST['login']." ".$_POST['password'];
     }
     
     if($tmp==1){
         session_start();
         $_SESSION['auth']= 1;
         $_SESSION['login']=$v->login;
-        header('Location:../home/jeux');
-        
+        header('Location:../home/jeux');   
     }
 }
-
-
-
 ?>
