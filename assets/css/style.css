@@ -142,7 +142,7 @@ fieldset{
 }
 
 .creer_sondage label{
-    font-size:29px ;
+    font-size:25px ;
 }
 
 .creer_sondage input{
@@ -315,8 +315,8 @@ td /* Les cellules normales */
     text-align: center; /* Tous les textes des cellules seront centrés*/
     padding: 5px; /* Petite marge intérieure aux cellules pour éviter que le texte touche les bordures */
 }
+
 td.time
 {
     width:5%;
 }
-
