@@ -23,7 +23,7 @@
       
     </style>
 
-<h1> ICI C'EST MA VUE DES PARTICIPANTS </h1>
+<h1> ICI C'EST LA VUE DES PARTICIPANTS </h1>
 
 
 <table>
@@ -31,6 +31,7 @@
     foreach($titres as $titre){
         $titre_hash= hash("ripemd160",$titre->titre);
         $test;
+        $tmp=0;
         
         if($_GET['cle']==$titre_hash){
             $date_deb=date("l d-m-Y", strtotime($titre->date_debut));
@@ -67,28 +68,19 @@
                     for($k=0 ; $k<= $totd ; $k++){
                         for($o=0 ; $o<=$j ; $o++){
                             $choix=array(null);
-                            $rdv[$jour[$k]][$o.":30"] ="<input class='btn_choix' type='button' value='choisir' onclick='help1($o,$k)'>";
-                            
-                            
-                                                        /*" <form method='POST'>
+                            $rdv[$jour[$k]][$o.":30"] ="<form method='POST'>
                                                             <input type='hidden' value='$jour[$k]' name='jour' >
                                                             <input type='hidden' value='$heure' name='heure'>
                                                             <input type='submit' class='btn_choix' value='Choisir'>
-                                                        </form>";*/
+                                                        </form>";
 
-                            $rdv[$jour[$k]][$j] =  "<input class='btn_choix' type='button' value='choisir' onclick='help2($o,$k)'>";
-                            
-                            
-                                                    /*" <form method='POST'>
+                            $rdv[$jour[$k]][$j] =  " <form method='POST'>
                                                         <input type='hidden' value='$jour[$k]' name='jour' >
                                                         <input type='hidden' value='$heure' name='heure'>
                                                         <input type='submit' class='btn_choix' value='Choisir'>
-                                                    </form>";*/
-
-
-
-
-
+                                                    </form>";
+                            
+                            
                         }
                     }
                     echo "<td>";
@@ -100,6 +92,21 @@
                 }
                 echo "</tr>";
             }
+            if(isset($_POST['jour']) && isset($_POST['heure'])){ 
+                $tmp++;
+                $add_choix=array($tmp => $_POST['jour'],$_POST['heure']);
+                $choix=array_replace($choix,$add_choix);
+
+            }
+
+            
+            
+            for($a=0;$a<$tmp;$a++){
+                
+                echo $choix[$a+1]." a ".$choix[$a+2];
+
+            }
+
             
         }
     }
