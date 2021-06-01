@@ -320,16 +320,3 @@ td.time
     width:5%;
 }
 
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////btn choix*/
-.btn_choix{
-    border:none;
-    text-decoration: none;
-    color: black;
-    background-color: blanchedalmond;
-}
-
-.btn_choix:hover{
-    cursor: pointer;
-    background-color: rebeccapurple;
-}

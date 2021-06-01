@@ -45,10 +45,10 @@ class Participant extends CI_Controller {
         );
         
         
-        $creneaux =$this->ModeleResultat->addresultat($data_sondage);
-        $add_data=array('creneaux' => $creneaux);
+        //$creneaux =$this->ModeleResultat->addresultat($data_sondage);
+        //$add_data=array('creneaux' => $creneaux);
 
-        $data=array_replace($data,$add_data);
+        //$data=array_replace($data,$add_data);
 
         
 

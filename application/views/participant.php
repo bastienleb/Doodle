@@ -40,6 +40,8 @@
             $totd=1;
             $jour = array(null,$date_deb);
             
+            echo "<form method='POST'>";
+            
             while(!($date==$date_finn)){
                 $date = date("l d-m-Y", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
                 $add = array($totd+1=>$date);
@@ -61,19 +63,33 @@
                     for($k=0 ; $k<= $totd ; $k++){
                         for($o=0 ; $o<=$j ; $o++){
                             $choix=array(null);
-                            $rdv[$jour[$k]][$o.":30"] ="<form method='POST'>
+                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
+                            
+                            
+                            
+                            
+                            
+                                                        /*
+                                                        "<form method='POST'>
                                                             <input type='hidden' value='$jour[$k]' name='jour' >
                                                             <input type='hidden' value='$heure' name='heure'>
                                                             <input type='hidden' value='$titre->titre' name='titre'>
                                                             <input type='submit' class='btn_choix' value='Choisir' id='btn_choix' onclick='message()'>
                                                         </form>";
+                                                        */
 
-                            $rdv[$jour[$k]][$j] =  " <form method='POST'>
+                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
+                            
+                            
+                            
+                                                    /*
+                                                    " <form method='POST'>
                                                         <input type='hidden' value='$jour[$k]' name='jour' >
                                                         <input type='hidden' value='$heure' name='heure'>
                                                         <input type='hidden' value='$titre->titre' name='titre'>
                                                         <input type='submit' class='btn_choix' value='Choisir' id='btn_choix' onclick='message()'>
                                                     </form>";
+                                                    */
                             
                             
                         }
@@ -87,11 +103,22 @@
                 }
                 echo "</tr>";
             }
+            echo "<input type='submit' value='Valider' id='btn_choix' "./*onclick='message()*/"'>";
+            echo "</form>";
+
+            if(isset($_POST["choix"])){
+                foreach($_POST['choix'] AS $cle=>$value){
+                    echo $cle, ' -> ', $value, '<br />';
+                }
+            }
+            
+
+            /*
             if(isset($_POST['jour']) && isset($_POST['heure'])){ 
                 $add_choix=array($tmp => $_POST['jour'],$_POST['heure']);
                 $choix=array_replace($choix,$add_choix);
                 $tmp++;
-            }
+            }*/
         }
     }
 ?>
