@@ -38,7 +38,7 @@
 
 
 <fieldset class="creer_sondage" >
-<legend>créer un sondage  </legend>
+<legend>Créer un sondage  </legend>
     <div>
         <form method="POST">
             <div class="contenu"><label> Titre </label> <input type="text" name="titre" required><br></div>
@@ -61,7 +61,8 @@
     foreach($sondages as $sondage){
         echo form_open('admin/resultat',array('method'=>'get'));
         echo form_hidden('cle',hash("ripemd160",$sondage->titre));
-        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."</p>";
+        echo "<p class='former_sondage' >". form_submit("",$sondage->titre)."<a href='../admin/delete/$sondage->titre'><i class='fa fa-times'></i></a> </p>" ;
+         // echo"<i class='fa fa-times'></i>";
         echo form_close();
     }   
     ?>
