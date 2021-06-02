@@ -19,6 +19,8 @@
 */
 ?>
 
+<img src="../../assets/img/logo2.png" class="logo_connexion"  alt="Logo DOODLE">
+
 <fieldset class="connexion">
     <form method="POST">
         <div class="formulaire">

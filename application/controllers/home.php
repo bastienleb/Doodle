@@ -71,7 +71,7 @@ class Home extends CI_Controller{
         $data_sondage=array('sondages' => $sondages);
         
         $this->load->view('templates/header');
-        $this->load->view('page',$data_sondage);
+        $this->load->view('crea_sondage',$data_sondage);
         $this->load->view('templates/footer');
     }
     

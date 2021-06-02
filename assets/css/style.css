@@ -1,3 +1,7 @@
+body{
+    background-color: #ecdfdf;
+}
+
 a{
     text-decoration: none;
 }
@@ -9,6 +13,15 @@ fieldset{
 }
 /* -------------------- Connexion.php -------------------- */
 
+.logo_connexion{
+transform: translateX(50%)translateY(-20%);
+width: 50%;
+height: 50%;
+position: absolute;
+
+}
+
+
 .connexion{
     background-color: blanchedalmond;
     border-radius: 1em;
@@ -16,7 +29,7 @@ fieldset{
     width: 30%;
     height: 40%;
     position: relative;
-    top: 50%;
+    top: 60%;
     left: 50%;
    transform: translateX(-50%)translateY(-50%);
    align-items: center;
@@ -39,6 +52,7 @@ fieldset{
 
 .bouton:hover {
     background-color: #f7c2f9;
+    color: black;
 }
 
 
@@ -90,6 +104,7 @@ fieldset{
 }
 .bouton2:hover {
     background-color: #f7c2f9;
+    color: black;
 }
 
 /* -------------------- Page Sondage -------------------- */
@@ -118,6 +133,7 @@ fieldset{
     left:92%;
     width: 10%;
     transform:translateY(-265%) translateX(-25%);
+    cursor: pointer;
 
 }
 
@@ -200,6 +216,7 @@ fieldset{
 }
 .bouton3:hover {
     background-color: #f7c2f9;
+    color: black;
 }
 .bouton3:hover:after {
     opacity: 1;
@@ -209,6 +226,11 @@ fieldset{
     width: 100%;
     min-width: 100%;
 }
+
+.former_sondage input {
+    cursor: pointer;
+}
+
 
 
 /* -------------------- Page Admin -------------------- */
@@ -247,23 +269,10 @@ input{
     font-size: 100%;
 }
 
-.bouton_copier {
-    font-family: sans-serif;
-    background: #eee;
-    padding: 0.5rem;
-    border: 2px solid #eee;
-}
-.bouton_copier  {
-    border: 2px solid #ccc;
-    padding: 0.5rem;
-    background: #fff;
-}
-.bouton_copier .js-copy {
-    background: hotpink;
-    color: white;
-    padding: 0.5rem;
-    border: 2px solid rebeccapurple;
-    font-size: inherit;
+
+.js-copy{
+    margin-bottom: 0;
+    cursor: pointer;
 }
 
 .essai.prev::before {
@@ -278,6 +287,18 @@ input{
     border-bottom:18px solid transparent;
     border-top:18px solid transparent;
 }
+
+.legend_sondage{
+    text-align: center;
+    color: red;
+    right: 50%;
+}
+
+span {
+    border: 2px solid #ccc;
+    padding: 0.5rem;
+    background: #fff;
+  }
 
 /* -------------------- Page Partipant -------------------- */
 
