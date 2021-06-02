@@ -24,6 +24,7 @@
     <p>
         <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse :" class="js-copy" data-target="#tocopy" >
+        <a href="../home/jeux ">retour</a>
     </p>
 </fieldset>
 

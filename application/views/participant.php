@@ -58,28 +58,33 @@
                 for($i = 0; $i < $totd; $i++) {
                     if($i == 0) {
                         $heure = str_replace(".5", ":30", $j);
+                        if(strlen($heure)==1){
+                            $heure=array("0$heure");
+                            $heure = implode("", $heure);
+                        }
                         echo "<td class=\"time\">".$heure."h</td>";
                     }
                     for($k=0 ; $k<= $totd ; $k++){
                         for($o=0 ; $o<=$j ; $o++){
                             $choix=array(null);
-
-                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure $titre->titre'><label> choisir</label><br>";
+                        
+                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure'><label> choisir</label><br>";
                             
-                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure $titre->titre'><label> choisir</label><br>";
+                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure'><label> choisir</label><br>";
                             
                             
                         }
                     }
                     echo "<td>";
-                    if(isset($rdv[$jour[$i+1]][$heure])) {
-                        echo $rdv[$jour[$i+1]][$heure];
+                    if(isset($rdv[$jour[$i+1]][$j])) {
+                        echo $rdv[$jour[$i+1]][$j];
                     }
                     echo "</td>";
                     
                 }
                 echo "</tr>";
             }
+            echo "<input type='hidden' value='$titre->titre' name='titre'>";
             echo "<input type='submit' value='Valider' id='btn_choix'>";
             echo "</form>";
 
