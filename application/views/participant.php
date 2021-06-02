@@ -63,33 +63,10 @@
                     for($k=0 ; $k<= $totd ; $k++){
                         for($o=0 ; $o<=$j ; $o++){
                             $choix=array(null);
-                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
-                            
-                            
-                            
-                            
-                            
-                                                        /*
-                                                        "<form method='POST'>
-                                                            <input type='hidden' value='$jour[$k]' name='jour' >
-                                                            <input type='hidden' value='$heure' name='heure'>
-                                                            <input type='hidden' value='$titre->titre' name='titre'>
-                                                            <input type='submit' class='btn_choix' value='Choisir' id='btn_choix' onclick='message()'>
-                                                        </form>";
-                                                        */
 
-                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
+                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure $titre->titre'><label> choisir</label><br>";
                             
-                            
-                            
-                                                    /*
-                                                    " <form method='POST'>
-                                                        <input type='hidden' value='$jour[$k]' name='jour' >
-                                                        <input type='hidden' value='$heure' name='heure'>
-                                                        <input type='hidden' value='$titre->titre' name='titre'>
-                                                        <input type='submit' class='btn_choix' value='Choisir' id='btn_choix' onclick='message()'>
-                                                    </form>";
-                                                    */
+                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='".date('Y-d-m', strtotime($jour[$k]))." $heure $titre->titre'><label> choisir</label><br>";
                             
                             
                         }
@@ -103,7 +80,7 @@
                 }
                 echo "</tr>";
             }
-            echo "<input type='submit' value='Valider' id='btn_choix' "./*onclick='message()*/"'>";
+            echo "<input type='submit' value='Valider' id='btn_choix'>";
             echo "</form>";
 
             if(isset($_POST["choix"])){
@@ -111,14 +88,6 @@
                     echo $cle, ' -> ', $value, '<br />';
                 }
             }
-            
-
-            /*
-            if(isset($_POST['jour']) && isset($_POST['heure'])){ 
-                $add_choix=array($tmp => $_POST['jour'],$_POST['heure']);
-                $choix=array_replace($choix,$add_choix);
-                $tmp++;
-            }*/
         }
     }
 ?>
