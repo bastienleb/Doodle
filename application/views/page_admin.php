@@ -79,9 +79,9 @@
                             for($o=0 ; $o<=$j ; $o++){
                                 $choix=array(null);
 
-                                $rdv[$jour[$k]][$o.":30"] = "<i class='fa fa-star'<i/> ";
+                                $rdv[$jour[$k]][$o.":30"] = "<i class='fa fa-mobile-phone'<i/> ";
                                 
-                                $rdv[$jour[$k]][$j] =  "<p> UN CSS T'AS PEUR </p>";
+                                $rdv[$jour[$k]][$j] =  "<i class='fa fa-soccer-ball-o'<i/>";
                                 
                                 
                             }
