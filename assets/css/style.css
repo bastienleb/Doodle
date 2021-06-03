@@ -33,6 +33,13 @@ position: absolute;
     left: 50%;
    transform: translateX(-50%)translateY(-50%);
    align-items: center;
+   min-width: 40%;
+   min-height: 30%;
+}
+
+.connexion fieldset{
+    min-width: 40%;
+    min-height: 30%;
 }
 
 .bouton {

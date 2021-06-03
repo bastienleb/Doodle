@@ -62,7 +62,7 @@
         echo form_open('admin/resultat',array('method'=>'get','class'=>'former_sondage'));
         echo form_hidden('cle',hash("ripemd160",$sondage->titre));
         echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a href='../admin/delete/$sondage->titre'><i class='fa fa-times'></i></a> </p>" ;
-         // echo"<i class='fa fa-times'></i>";
+         
         echo form_close();
     }   
     ?>
