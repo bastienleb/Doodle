@@ -22,13 +22,11 @@
 <fieldset>
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
-        <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
+        <span><a id="tocopy" >http://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse :" class="js-copy" data-target="#tocopy" >
         <a href="../home/jeux ">retour</a>
     </p>
 </fieldset>
-
-
 
 
 <fieldset>
@@ -37,9 +35,9 @@
 
     <table>
     <?php
-        foreach($titres as $titre){
+    
+        foreach($titres as $titre){              
             $titre_hash= hash("ripemd160",$titre->titre);
-            
             $test;
             $tmp=0;
             
@@ -82,6 +80,19 @@
                                 $rdv[$jour[$k]][$o.":30"] = "<i class='fa fa-mobile-phone'<i/> ";
                                 
                                 $rdv[$jour[$k]][$j] =  "<i class='fa fa-soccer-ball-o'<i/>";
+                                echo "jour = $jour[$k] <br>";
+                                //echo "heure = $j <br>";
+
+                                foreach ($verif as $v ) {
+                                    //echo "<br>".$v->login."    ";
+                                    //echo "<br>".$v->jour."    ";   // PB DE CONVERSION 
+                                    //echo "<br>".$v->heure."    ";
+                                    //echo "<br>".$v->titre_sondage."    ";
+                                    $date_verif=date("l m-d-Y", strtotime($v->jour));
+                                    echo "date_verif = $date_verif <br>";
+                                    $rdv[$date_verif][$v->heure] = $v->login;
+                                }
+                                
                                 
                                 
                             }

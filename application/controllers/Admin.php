@@ -24,11 +24,22 @@ class Admin extends CI_Controller {
     public function resultat(){
         $this->load->model('Securite');
         $this->load->model('ModeleUser');
+        $this->load->model('ModeleResultat');
 
         Securite::Connect();
 
         $titres = $this->ModeleUser->get_titre();
-        $data=array('titres' => $titres);
+        $data =array('titres' => $titres);
+
+        foreach($titres as $titre){
+            $titre_hash= hash("ripemd160",$titre->titre);
+            if($_GET['cle']==$titre_hash){
+                $verif = $this->ModeleResultat->get_resultat($titre->titre); 
+                $data_verif=array('verif' => $verif);
+                $data=array_replace($data,$data_verif);
+            }
+        }
+
 
 
         $this->load->view('templates/header');

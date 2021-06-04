@@ -27,12 +27,11 @@ class ModeleResultat extends CI_Model {
         return $this->db->insert('doodle_repondu', $data);
     }
     
-/*
-    public function get_resultat($login){
-        $this->db->select('*')->from('doodle_repondu')->where('createur',$login);
+
+    public function get_resultat($titre){
+        $this->db->select('*')->from('doodle_repondu')->where('titre_sondage',$titre);
         $query=$this->db->get();
         return $query->result();
-    }
- */    
+    }  
 }
 ?>

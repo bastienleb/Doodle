@@ -85,14 +85,10 @@
                 echo "</tr>";
             }
             echo "<input type='hidden' value='$titre->titre' name='titre'>";
-            echo "<input type='submit' value='Valider' id='btn_choix'>";
+            echo "<input type='submit' value='Valider' id='btn_choix' onclick=
+            'messages()'>";
+            echo "<label>nom<label> <input type='text' name='login' required>";
             echo "</form>";
-
-            if(isset($_POST["choix"])){
-                foreach($_POST['choix'] AS $cle=>$value){
-                    echo $cle, ' -> ', $value, '<br />';
-                }
-            }
         }
     }
 ?>

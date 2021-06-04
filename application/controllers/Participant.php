@@ -21,22 +21,17 @@
 class Participant extends CI_Controller {
 
     public function choix(){
-        $this->load->model('Securite');
         $this->load->model('ModeleUser');
         $this->load->model('ModeleResultat');
-        Securite::Connect();
 
         $titres = $this->ModeleUser->get_titre();
         $data=array('titres' => $titres);
         
-
-        
-        //echo $_POST['jour']." ".$_POST['heure']."<br>";
         if(isset($_POST['titre']) && isset($_POST['choix'])){
             foreach($_POST['choix'] AS $cle=>$value){
                 $tmp_jour=0;
                 $tmp_heure=0;
-                $login =$_SESSION['login'];
+                $login =$_POST['login'];
                 $jourfin = array("null");
                 $heurefin = array("null");
                 $titre=$_POST['titre'];
@@ -52,10 +47,8 @@ class Participant extends CI_Controller {
                     $heure=array($tmp_heure=>$value[$j]);
                     $heurefin=array_replace($heurefin,$heure);
                     $tmp=implode("", $heurefin);
-                    //echo "tmp = $tmp <br>";
 
                     if(in_array(":",$heurefin)){
-                        echo "pomme de teh";
                         $minute=array($tmp_heure+1=>"30");
                         $heurefin=array_replace($heurefin,$minute);
                     }
@@ -65,12 +58,6 @@ class Participant extends CI_Controller {
 
                 $jourfinal = implode("", $jourfin);
                 $heurefinal = implode("", $heurefin);
-
-                // echo $login."<br>"; 
-                // echo $jourfinal."<br>"; 
-                // echo $heurefinal."<br>";  
-                // echo $titre."<br>"; 
-                // echo "/ <br>";
 
                 $data_sondage=array(
                     'login'=>$login,
