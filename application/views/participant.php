@@ -85,9 +85,9 @@
                         for($o=0 ; $o<=$j ; $o++){
                             $choix=array(null);
                         
-                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
+                            $rdv[$jour[$k]][$o.":30"] = "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'>";
                             
-                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'><label> choisir</label><br>";
+                            $rdv[$jour[$k]][$j] =  "<input type='checkbox' name='choix[]' value='$jour[$k] $heure'>";
                             
                             
                         }
