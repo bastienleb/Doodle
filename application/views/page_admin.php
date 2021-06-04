@@ -102,14 +102,14 @@
                                 $rdv[$jour[$k]][$o.":30"] = "<i class='fa fa-mobile-phone'<i/> ";
                                 
                                 $rdv[$jour[$k]][$j] =  "<i class='fa fa-soccer-ball-o'<i/>";
-                                echo "<br> jour = $jour[$k] <br>";
+                                //echo "<br> jour = $jour[$k] <br>";
                                 //echo "heure = $j <br>";
 
                                 foreach ($verif as $v ) {
-                                    echo "<br>".$v->login."    ";
-                                    echo "<br>".$v->jour."    ";   // PB DE CONVERSION 
-                                    echo "<br>".$v->heure."    ";
-                                    echo "<br>".$v->titre_sondage."    ";
+                                    // echo "<br>".$v->login."    ";
+                                    // echo "<br>".$v->jour."    ";   // PB DE CONVERSION 
+                                    // echo "<br>".$v->heure."    ";
+                                    // echo "<br>".$v->titre_sondage."    ";
                                     //$date_verif=);
                                     //echo "date_verif = ".date('l d-m-Y', strtotime($v->jour))." <br>";
                                     //$rdv[$v->jour][$v->heure] = $v->login;
