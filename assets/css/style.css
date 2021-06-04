@@ -317,7 +317,7 @@ span {
     position: relative;
     left:92%;
     width: 10%;
-    transform:translateY(-450%) translateX(-25%);
+    transform:translateY(-340%) translateX(-25%);
     cursor: pointer;
 
 }
@@ -337,6 +337,15 @@ span {
 
 .plein{
     background-color: green;
+}
+
+.logo_admin{
+    left: 50%;
+    transform: translateX(-50%)translateY(-155%);
+    width: 230px;
+    height: 115px;
+    position: absolute;
+    
 }
 
 /* -------------------- Page Partipant -------------------- */

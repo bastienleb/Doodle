@@ -33,7 +33,7 @@
         <input type="submit" value="retour" class="btn_retour" >
     </form>
 
-    <h2 class="titre">Selection de sondage </h2>
+    <img src="../../assets/img/logo1.png" class="logo_admin"  alt="Logo DOODLE">
 
     <form method="get" >
         <input type="hidden" name="deco" value="1">
