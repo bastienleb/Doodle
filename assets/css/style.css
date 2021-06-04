@@ -240,6 +240,8 @@ position: absolute;
 
 
 
+
+
 /* -------------------- Page Admin -------------------- */
 
 legend {
@@ -306,6 +308,24 @@ span {
     padding: 0.5rem;
     background: #fff;
   }
+
+  .btn_deco{
+    position: relative;
+    left:92%;
+    width: 10%;
+    transform:translateY(-450%) translateX(-25%);
+    cursor: pointer;
+
+}
+
+.btn_retour{
+    position: relative;
+    left:15%;
+    width: 10%;
+    transform:translateY(-150%) translateX(-25%);
+    cursor: pointer;
+
+}
 
 /* -------------------- Page Partipant -------------------- */
 

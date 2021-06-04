@@ -30,7 +30,7 @@
     ?>
     <form method="get" >
         <input type="hidden" name="deco" value="1">
-        <input type="submit" value="deconnection" class="btn_bar">
+        <input type="submit" value="deconnection" class="btn_deco">
     </form>
   
 </div>

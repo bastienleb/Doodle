@@ -19,12 +19,34 @@
 */
 ?>
 
+<div class="bar">
+    <?php
+        if(isset($_GET['retour'])){
+            header('Location:../home/jeux');
+        }
+
+     ?>
+<p class="connected">Connecter en temps que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
+
+    <form method="get" >
+        <input type="hidden" name="retour" value="1">
+        <input type="submit" value="retour" class="btn_retour" >
+    </form>
+
+    <h2 class="titre">Selection de sondage </h2>
+
+    <form method="get" >
+        <input type="hidden" name="deco" value="1">
+        <input type="submit" value="deconnection" class="btn_deco">
+    </form>
+  
+</div>
+
 <fieldset>
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
         <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse :" class="js-copy" data-target="#tocopy" >
-        <a href="../home/jeux ">retour</a>
     </p>
 </fieldset>
 
