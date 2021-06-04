@@ -30,6 +30,5 @@
 	
 		<input type="submit" value='Créer le compte' class="bouton2">
 
-		<!-- <input type="submit" onclick="window.location.href='../connexion'" value="login" class="bouton2"> -->
 	</fieldset>
 </form>

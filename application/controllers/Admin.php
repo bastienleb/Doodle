@@ -51,11 +51,14 @@ class Admin extends CI_Controller {
         
         $this->load->model('Securite');
         $this->load->model('ModeleSondage');
+        $this->load->model('ModeleResultat');
+        
         Securite::Connect();
-
+        
         $titre=str_replace("%20"," ",$titre);
-
-        if($this->ModeleSondage->sup_sondage($titre)){
+        echo $titre;
+        
+        if($this->ModeleSondage->sup_sondage($titre) && $this->ModeleResultat->sup_reponse($titre)){
             header("Location:../../home/jeux");
         }
     }

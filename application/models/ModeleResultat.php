@@ -33,5 +33,9 @@ class ModeleResultat extends CI_Model {
         $query=$this->db->get();
         return $query->result();
     }  
+
+    public function sup_reponse($titre){
+        return $this->db->where('titre_sondage', $titre)->delete('doodle_repondu');
+    }
 }
 ?>

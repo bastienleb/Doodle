@@ -102,9 +102,8 @@
                 echo "</tr>";
             }
             echo "<input type='hidden' value='$titre->titre' name='titre'>";
-            echo "<input type='submit' value='Valider' id='btn_choix' onclick=
-            'messages()'>";
-            echo "<input type='text' name='login' required   placeholder='Nom'>";
+            echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix' onclick='message()'>";
+            echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom'>";
             echo "</form>";
         }
     }

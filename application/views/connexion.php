@@ -24,8 +24,8 @@
 <fieldset class="connexion">
     <form method="POST">
         <div class="formulaire">
-            <label for="login">Login <input type="text" id="nom" name="login" required></label><br>
-            <label for="password">Password <input type="password" id="password" name="password" required></label><br>
+            <input type="text" id="nom" name="login" class="login" placeholder="login" required><br>
+            <input type="password" id="password" name="password" class="password" placeholder="mot de passe" required><br>
             <br>
             <input type="submit" value="Connexion" class="bouton">
         </div>
