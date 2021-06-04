@@ -19,8 +19,10 @@
 */
 ?>
 <div class="bar">
-    <p class="connected">Connecter en temps que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
-    <h2 class="titre">Selection de sondage </h2>
+    <p class="connected">Connecté en tant que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
+   
+    <img src="../../assets/img/logo3.png" class="logo_sondage"  alt="Logo DOODLE">
+    
     <?php
     if(isset($_GET['deco'])){
         Securite::Deconnect();
@@ -28,9 +30,11 @@
     }
 
     ?>
+
+
     <form method="get" >
         <input type="hidden" name="deco" value="1">
-        <input type="submit" value="deconnection" class="btn_bar">
+        <input type="submit" value="déconnection" class="btn_bar">
     </form>
   
 </div>

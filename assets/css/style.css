@@ -139,7 +139,7 @@ position: absolute;
     position: relative;
     left:92%;
     width: 10%;
-    transform:translateY(-265%) translateX(-25%);
+    transform:translateY(-150%) translateX(-25%);
     cursor: pointer;
 
 }
@@ -237,6 +237,15 @@ position: absolute;
 .former_sondage input {
     cursor: pointer;
 }
+
+.logo_sondage{
+    left: 50%;
+    transform: translateX(-50%)translateY(-80%);
+    width: 230px;
+    height: 115px;
+    position: absolute;
+    
+    }
 
 
 
