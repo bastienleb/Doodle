@@ -245,11 +245,7 @@ position: absolute;
     height: 115px;
     position: absolute;
     
-    }
-
-
-
-
+}
 
 /* -------------------- Page Admin -------------------- */
 
@@ -286,7 +282,6 @@ input{
     font-size: 100%;
     font-size: 100%;
 }
-
 
 .js-copy{
     margin-bottom: 0;
@@ -334,6 +329,14 @@ span {
     transform:translateY(-150%) translateX(-25%);
     cursor: pointer;
 
+}
+
+.vide{
+    background-color: red;
+}
+
+.plein{
+    background-color: green;
 }
 
 /* -------------------- Page Partipant -------------------- */

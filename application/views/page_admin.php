@@ -26,7 +26,7 @@
         }
 
      ?>
-<p class="connected">Connecter en temps que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
+<p class="connected">Connecté en tant que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
 
     <form method="get" >
         <input type="hidden" name="retour" value="1">
@@ -37,7 +37,7 @@
 
     <form method="get" >
         <input type="hidden" name="deco" value="1">
-        <input type="submit" value="deconnection" class="btn_deco">
+        <input type="submit" value="déconnection" class="btn_deco">
     </form>
   
 </div>
@@ -60,12 +60,11 @@
     
         foreach($titres as $titre){              
             $titre_hash= hash("ripemd160",$titre->titre);
-            $test;
             $tmp=0;
             
             if($_GET['cle']==$titre_hash){
-                $date_deb=date("l d-m-Y", strtotime($titre->date_debut));
-                $date_finn=date("l d-m-Y", strtotime($titre->date_fin));
+                $date_deb=date("l d-m-Y ", strtotime($titre->date_debut));
+                $date_finn=date("l d-m-Y ", strtotime($titre->date_fin));
 
                 $heure_deb=date("H",strtotime($titre->heure_debut));
                 $min_deb=date("i",strtotime($titre->heure_debut));
@@ -78,7 +77,7 @@
                 echo "<form method='POST'>";
                 
                 while(!($date==$date_finn)){
-                    $date = date("l d-m-Y", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
+                    $date = date("l d-m-Y ", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
                     $add = array($totd+1=>$date);
                     $adddeb = array(1=>$date_deb);
                     $jour = array_replace($jour,$add,$adddeb);
@@ -98,25 +97,15 @@
                         for($k=0 ; $k<= $totd ; $k++){
                             for($o=0 ; $o<=$j ; $o++){
                                 $choix=array(null);
-
-                                $rdv[$jour[$k]][$o.":30"] = "<i class='fa fa-mobile-phone'<i/> ";
                                 
-                                $rdv[$jour[$k]][$j] =  "<i class='fa fa-soccer-ball-o'<i/>";
-                                //echo "<br> jour = $jour[$k] <br>";
-                                //echo "heure = $j <br>";
+                                $rdv[$jour[$k]][$o.":30"] = "<p class='vide'>creneaux vide</p>";
+                                
+                                $rdv[$jour[$k]][$j] =  " <p class='vide'> creneaux vide </p>";
 
                                 foreach ($verif as $v ) {
-                                    // echo "<br>".$v->login."    ";
-                                    // echo "<br>".$v->jour."    ";   // PB DE CONVERSION 
-                                    // echo "<br>".$v->heure."    ";
-                                    // echo "<br>".$v->titre_sondage."    ";
-                                    //$date_verif=);
-                                    //echo "date_verif = ".date('l d-m-Y', strtotime($v->jour))." <br>";
-                                    //$rdv[$v->jour][$v->heure] = $v->login;
+                                    $heure_finnnnnn=trim($v->heure);
+                                    $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
                                 }
-                                
-                                
-                                
                             }
                         }
                         echo "<td>";
@@ -131,11 +120,6 @@
                 
                 echo "</form>";
 
-                if(isset($_POST["choix"])){
-                    foreach($_POST['choix'] AS $cle=>$value){
-                        echo $cle, ' -> ', $value, '<br />';
-                    }
-                }
             }
         }
     ?>

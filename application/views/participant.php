@@ -25,7 +25,6 @@
     foreach($titres as $titre){
         $titre_hash= hash("ripemd160",$titre->titre);
         
-        $test;
         $tmp=0;
         
         if($_GET['cle']==$titre_hash){
