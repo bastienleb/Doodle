@@ -390,3 +390,12 @@ td.time
     width:5%;
 }
 
+.logo_participant{
+    left: 50%;
+    transform: translateX(-50%)translateY(-37%);
+    width: 230px;
+    height: 115px;
+    position: absolute;
+    
+}
+
