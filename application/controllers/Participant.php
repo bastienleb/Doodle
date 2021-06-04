@@ -28,36 +28,38 @@ class Participant extends CI_Controller {
         $data=array('titres' => $titres);
         
         if(isset($_POST['titre']) && isset($_POST['choix'])){
+            echo "Titre :<b>".$_POST['titre']."</b><br>";
             foreach($_POST['choix'] AS $cle=>$value){
                 $tmp_jour=0;
                 $tmp_heure=0;
+                $max=3;
                 $login =$_POST['login'];
                 $jourfin = array("null");
                 $heurefin = array("null");
                 $titre=$_POST['titre'];
-                
-                for($i=0;$i<10;$i++){
-                    $jour=array($tmp_jour=>$value[$i]);
-                    $jourfin=array_replace($jourfin,$jour);
-                    
-                    $tmp_jour++;
+
+                if(strlen($value)>=23 && $value[strlen($value)-3]== ":"){
+                    $max=6;
                 }
                 
-                for($j=11;$j<13;$j++){
+                for($i=0;$i<=strlen($value)-$max;$i++){
+                    $jour=array($tmp_jour=>$value[$i]);
+                    $jourfin=array_replace($jourfin,$jour);
+                                        
+                    $tmp_jour++;
+                }
+
+                for($j=strlen($value)-$max;$j<strlen($value);$j++){
                     $heure=array($tmp_heure=>$value[$j]);
                     $heurefin=array_replace($heurefin,$heure);
                     $tmp=implode("", $heurefin);
-
-                    if(in_array(":",$heurefin)){
-                        $minute=array($tmp_heure+1=>"30");
-                        $heurefin=array_replace($heurefin,$minute);
-                    }
-                    $tmp_heure++;
                     
+                    $tmp_heure++;
                 }
-
+                    
+                   
                 $jourfinal = implode("", $jourfin);
-                $heurefinal = implode("", $heurefin);
+                $heurefinal = implode("", $heurefin);               
 
                 $data_sondage=array(
                     'login'=>$login,
@@ -65,6 +67,7 @@ class Participant extends CI_Controller {
                     'heure'=>$heurefinal,
                     'titre_sondage'=>$titre
                 );
+
                 $creneaux =$this->ModeleResultat->addresultat($data_sondage);
                 $add_data=array('creneaux' => $creneaux);
 
