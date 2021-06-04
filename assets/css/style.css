@@ -331,12 +331,11 @@ span {
 
 }
 
-.vide{
-    background-color: red;
-}
 
 .plein{
     background-color: green;
+    border:solid 1px green;
+    border-radius: 0.5em;
 }
 
 .logo_admin{
@@ -363,9 +362,9 @@ caption /* Titre du tableau */
 table /* Le tableau en lui-même */
 {
     background-color: blanchedalmond;
-    margin: auto; /* Centre le tableau */
-    border: 4px outset green; /* Bordure du tableau avec effet 3D (outset) */
-    border-collapse: collapse; /* Colle les bordures entre elles */
+    margin: auto; 
+    border: 4px outset green; 
+    border-collapse: collapse;
     width:100%;
 }
 th /* Les cellules d'en-tête */

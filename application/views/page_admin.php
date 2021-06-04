@@ -98,9 +98,9 @@
                             for($o=0 ; $o<=$j ; $o++){
                                 $choix=array(null);
                                 
-                                $rdv[$jour[$k]][$o.":30"] = "<p class='vide'>creneaux vide</p>";
+                                $rdv[$jour[$k]][$o.":30"] = "creneaux vide";
                                 
-                                $rdv[$jour[$k]][$j] =  " <p class='vide'> creneaux vide </p>";
+                                $rdv[$jour[$k]][$j] =  "creneaux vide";
 
                                 foreach ($verif as $v ) {
                                     $heure_finnnnnn=trim($v->heure);
