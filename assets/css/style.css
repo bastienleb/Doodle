@@ -361,6 +361,10 @@ fieldset{
     background-color: green;
     border:solid 1px green;
     border-radius: 0.5em;
+    width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .logo_admin{
@@ -416,8 +420,9 @@ td.time{
     position: absolute;
 }
 
+
 .btn_choix, .nom_participant{
-    width: 100%;
+    width: 50%;
     padding: 12px;
     border: 1px solid ;
     border-radius: 4px;
@@ -425,6 +430,14 @@ td.time{
     margin-top: 10px;
     margin-bottom: 14px;
     font-size: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.btn_choix{
+    width: 100%;
 }
 
 /*--------------------------------------------V1-------------------------------------------*/
@@ -458,13 +471,13 @@ table input[type="checkbox"]:after {
 }
 
 table input[type="checkbox"]:checked {
-    background: #a6c7ff;
+    background: rgb(47, 194, 186);
     border-color: #8daee5;
 }
 
 table input[type="checkbox"]:checked:after {
     left: 23px;
-    border-color: #8daee5;
+    border-color: rgb(47, 194, 186);
 }
 
 table input[type="checkbox"]:hover:not(:checked):not(:disabled):after,

@@ -52,18 +52,37 @@ class Home extends CI_Controller{
             $heure_fin = $this->input->post('heure_fin');
             $login = $this->input->post('login');
 
-            $data=array(
-                'titre'=>$titre,
-                'lieu'=> $lieu,
-                'descriptif'=>$descriptif,
-                'date_debut'=>$date_debut,
-                'date_fin'=>$date_fin,
-                'heure_debut'=>$heure_debut,
-                'heure_fin'=>$heure_fin,
-                'createur'=>$login
-            );            
-            if($this->ModeleSondage->addSondage($data)){
-                header("Location:../admin/resultat?cle=".hash('ripemd160',$titre));
+            if($date_debut >= $date_fin){
+                ?>
+                    <script type="text/javascript">
+                        alert("le jour de debut de peut pas etre plus lointain que le jour de fin");
+                    </script>
+
+                <?php
+            }
+            else if ($heure_debut >= $heure_fin){
+                ?>
+                    <script type="text/javascript">
+                        alert("l'heure de debut de peut pas etre plus lointain que l'heure de fin");
+                    </script>
+
+                <?php
+            }
+            else{
+
+                $data=array(
+                    'titre'=>$titre,
+                    'lieu'=> $lieu,
+                    'descriptif'=>$descriptif,
+                    'date_debut'=>$date_debut,
+                    'date_fin'=>$date_fin,
+                    'heure_debut'=>$heure_debut,
+                    'heure_fin'=>$heure_fin,
+                    'createur'=>$login
+                );            
+                if($this->ModeleSondage->addSondage($data)){
+                    header("Location:../admin/resultat?cle=".hash('ripemd160',$titre));
+                }
             }
         }
             

@@ -56,6 +56,7 @@ class Participant extends CI_Controller {
                     
                     $tmp_heure++;
                 }
+                
                     
                    
                 $jourfinal = implode("", $jourfin);
@@ -68,10 +69,9 @@ class Participant extends CI_Controller {
                     'titre_sondage'=>$titre
                 );
 
-                $creneaux =$this->ModeleResultat->addresultat($data_sondage);
-                $add_data=array('creneaux' => $creneaux);
-
-                $data=array_replace($data,$add_data);
+                if($this->ModeleResultat->addresultat($data_sondage)){
+                    header('Location:valider');
+                }
                 
             }
         }
@@ -80,4 +80,10 @@ class Participant extends CI_Controller {
         $this->load->view('participant',$data);
         $this->load->view('templates/footer');
     } 
+
+    public function valider(){
+        $this->load->view('templates/header');
+        $this->load->view('creneaux');
+        $this->load->view('templates/footer');
+    }
 }

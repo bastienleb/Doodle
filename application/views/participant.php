@@ -102,7 +102,7 @@
                 echo "</tr>";
             }
             echo "<input type='hidden' value='$titre->titre' name='titre'>";
-            echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix' onclick='message()'>";
+            echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
             echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom'>";
             echo "</form>";
         }
@@ -110,11 +110,3 @@
 ?>
 </table>
 
-
-<script type="text/javascript">
-
-    function message(){
-        alert("créneaux ajouter");
-        
-    }
-</script>

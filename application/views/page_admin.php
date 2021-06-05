@@ -101,10 +101,19 @@
                                 
                                 $rdv[$jour[$k]][$j] =  "creneaux vide";
 
-                                foreach ($verif as $v ) {
-                                    $heure_finnnnnn=trim($v->heure);
-                                    $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
-                                }
+                            }
+                        }
+                        foreach ($verif as $v ) {
+                            //echo $v->login."<br>";
+                            $test=$v->login;
+                            if($jour[$k-2]==$v->jour ){
+                                $heure_finnnnnn=trim($v->heure);
+                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p> <p class='plein'>$test</p>";
+                                
+                            }
+                            else{
+                                $heure_finnnnnn=trim($v->heure);
+                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
                             }
                         }
                         echo "<td>";
@@ -116,26 +125,16 @@
                     }
                     echo "</tr>";
                 }
-                
                 echo "</form>";
-
             }
+            
         }
     ?>
     </table>
 
 </fieldset>
 
-
 <script type="text/javascript">
-
-
-
-    function message(){
-        alert("créneaux ajouter");
-        
-    }
-
     var btncopy = document.querySelector('.js-copy');
     if(btncopy) {
         btncopy.addEventListener('click', docopy);
