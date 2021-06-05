@@ -34,10 +34,9 @@ fieldset{
     position: relative;
     top: 60%;
     left: 50%;
-   transform: translateX(-50%)translateY(-50%);
-   align-items: center;
-   min-width: 40%;
-   min-height: 30%;
+    transform: translateX(-50%)translateY(-50%);
+    min-width: 40%;
+    min-height: 30%;
 }
 
 .connexion fieldset{
@@ -170,7 +169,6 @@ fieldset{
     height: 75%;
     min-width: 40%;
     min-height: 75%;
-    align-items: center;
     background-color: blanchedalmond;
     overflow: auto;
 }

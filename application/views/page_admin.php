@@ -24,6 +24,11 @@
             header('Location:../home/jeux');
         }
 
+        if(isset($_GET['deco'])){
+            Securite::Deconnect();
+            header('Location:../connexion/');
+        }
+
      ?>
 <p class="connected">Connecté en tant que <b>  <?php  echo$_SESSION['login'] ?></b></p>    
 
@@ -91,30 +96,22 @@
                     for($i = 0; $i < $totd; $i++) {
                         if($i == 0) {
                             $heure = str_replace(".5", ":30", $j);
+                            if($heure<10 && !($j == $heure_deb)){
+                                $heure=array(0,$heure);
+                                $heure = implode("", $heure);
+                            }
                             echo "<td class=\"time\">".$heure."h</td>";
                         }
                         for($k=0 ; $k<= $totd ; $k++){
                             for($o=0 ; $o<=$j ; $o++){
                                 $choix=array(null);
-                                
-                                $rdv[$jour[$k]][$o.":30"] = "creneaux vide";
-                                
-                                $rdv[$jour[$k]][$j] =  "creneaux vide";
+                                $rdv[$jour[$k]][$heure] =  "creneaux vide";
 
                             }
                         }
                         foreach ($verif as $v ) {
-                            //echo $v->login."<br>";
-                            $test=$v->login;
-                            if($jour[$k-2]==$v->jour ){
-                                $heure_finnnnnn=trim($v->heure);
-                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p> <p class='plein'>$test</p>";
-                                
-                            }
-                            else{
-                                $heure_finnnnnn=trim($v->heure);
-                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
-                            }
+                            $heure_finnnnnn=trim($v->heure);
+                            $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
                         }
                         echo "<td>";
                         if(isset($rdv[$jour[$i+1]][$heure])) {

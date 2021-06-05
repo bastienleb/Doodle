@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
         <head>
                 <title>Doodle</title>
                 <?=link_tag('assets/css/style.css')?>
