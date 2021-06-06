@@ -52,7 +52,31 @@
         <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
     </p>
+
+
+    <form method="post" id="clos">
+        <input type="hidden" name="clore" value="1">
+        <input type="submit" value="clore le sondage">
+    </form>
+    
+    <?php
+    foreach($titres as $titre){
+            if($titre->clos==1){
+                echo "Le sondage est clos";
+                ?>
+                <script type="text/javascript">
+                    document.getElementById('clos').style.display = 'none';
+                </script>
+
+                <?php
+            }   
+        }
+    ?>
 </fieldset>
+
+
+
+
 
 
 <fieldset>
@@ -150,12 +174,10 @@
         try {
             var result = document.execCommand('copy');
             if (result) {
-                // La copie a réussi
                 alert('Copié !');
             }
         }
         catch(err) {
-            // Une erreur est surevnue lors de la tentative de copie
             alert(err);
         }
 
