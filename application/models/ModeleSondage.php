@@ -36,6 +36,10 @@ class ModeleSondage extends CI_Model {
     public function sup_sondage($titre){
         return $this->db->where('titre', $titre)->delete('doodle_sondage');
     }
+
+    public function update_sondage($data){
+        return $this->db->update('doodle_sondage',$data);
+    }
      
 }
 ?>

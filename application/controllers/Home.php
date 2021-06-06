@@ -52,7 +52,7 @@ class Home extends CI_Controller{
             $heure_fin = $this->input->post('heure_fin');
             $login = $this->input->post('login');
 
-            if($date_debut >= $date_fin){
+            if($date_debut > $date_fin){
                 ?>
                     <script type="text/javascript">
                         alert("le jour de debut de peut pas etre plus lointain que le jour de fin");
@@ -60,7 +60,7 @@ class Home extends CI_Controller{
 
                 <?php
             }
-            else if ($heure_debut >= $heure_fin){
+            else if ($heure_debut > $heure_fin){
                 ?>
                     <script type="text/javascript">
                         alert("l'heure de debut de peut pas etre plus lointain que l'heure de fin");
