@@ -19,14 +19,16 @@
 */
 ?>
 
+<img src="../../assets/img/logo2.png" class="logo_inscription"  alt="Logo DOODLE">
+
 <form method="post">
 
 	<fieldset class="inscription">
-		<label>Login </label><input type="text" name="login" required><br>
-		<label>Password </label><input type="password" name="password" required><br>
-		<label>Nom </label><input type="text" name="nom" required><br>
-		<label>Prénom </label><input type="text" name="prenom" required><br>
-		<label>Email </label><input type="email" name="email" required><br>
+		<input type="text" name="login" placeholder="login" required><br>
+		<input type="password" name="password" placeholder="password" required><br>
+		<input type="text" name="nom" placeholder="Nom" required><br>
+		<input type="text" name="prenom" placeholder="Prénom" required><br>
+		<input type="email" name="email" placeholder="email" required><br>
 	
 		<input type="submit" value='Créer le compte' class="bouton2">
 
