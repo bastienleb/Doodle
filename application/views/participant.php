@@ -51,6 +51,9 @@ foreach($titres as $titre){
 echo "<form method='POST'>";
 echo "<table>";
 
+echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom'>";
+echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
+
 foreach($titres as $titre){
     
     if($tmp==1){
@@ -115,8 +118,6 @@ foreach($titres as $titre){
             }
             echo "</table>";
             echo "<input type='hidden' value='$titre->titre' name='titre'>";
-            echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
-            echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom'>";
             echo "</form>";
         }
         else{
