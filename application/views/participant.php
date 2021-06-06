@@ -120,9 +120,6 @@ foreach($titres as $titre){
             echo "<input type='hidden' value='$titre->titre' name='titre'>";
             echo "</form>";
         }
-        else{
-            header('Location:../../applicati');
-        }
     }
 }
 ?>

@@ -85,7 +85,7 @@
 
     <table>
     <?php
-    
+        $tmp=0;
         foreach($titres as $titre){              
             $titre_hash= hash("ripemd160",$titre->titre);
             $tmp=0;
@@ -95,7 +95,6 @@
                 $date_finn=date("l d-m-Y ", strtotime($titre->date_fin));
 
                 $heure_deb=date("H",strtotime($titre->heure_debut));
-                $min_deb=date("i",strtotime($titre->heure_debut));
                 $heure_finn=date("H",strtotime($titre->heure_fin));
 
                 $date=$date_deb;
@@ -133,11 +132,17 @@
 
                             }
                         }
-                        foreach ($verif as $v ) {
+                        foreach($verif as $v){
                             $heure_finnnnnn=trim($v->heure);
-                            $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$v->login</p>";
+                            $tmp=$v->login;
+                            foreach ($verif as $q) {
+                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$tmp</p>";
+                            }
                         }
+                        
+
                         echo "<td>";
+                        
                         if(isset($rdv[$jour[$i+1]][$heure])) {
                             echo $rdv[$jour[$i+1]][$heure];
                         }

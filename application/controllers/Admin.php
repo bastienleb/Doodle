@@ -33,11 +33,15 @@ class Admin extends CI_Controller {
         $data =array('titres' => $titres);
 
         foreach($titres as $titre){
+            $heure_deb=date("H",strtotime($titre->heure_debut));
+            $heure_finn=date("H",strtotime($titre->heure_fin));
+
             $titre_hash= hash("ripemd160",$titre->titre);
+
             if($_GET['cle']==$titre_hash){
-                $verif = $this->ModeleResultat->get_resultat($titre->titre); 
-                $data_verif=array('verif' => $verif);
-                $data=array_replace($data,$data_verif);
+                    $verif = $this->ModeleResultat->get_resultat($titre->titre); 
+                    $data_verif=array('verif' => $verif);
+                    $data=array_replace($data,$data_verif);
             }
         }
         if(isset($_POST['clore'])){
