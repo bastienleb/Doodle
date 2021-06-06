@@ -226,9 +226,10 @@ fieldset{
 
 .liste_sondage_user{
     position: absolute;
+    top: 20%;
     left:90%;
     text-align: center;
-    transform: translateX(-90%)translateY(-95%);
+    transform: translateX(-90%)translateY(-0%);
 }
 
 .liste_sondage_user input{
