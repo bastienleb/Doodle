@@ -189,8 +189,8 @@ fieldset{
 }
 
 .creer_sondage{
-    position: relative;
-    top: 39%;
+    position: absolute;
+    top: 20%;
     left: 10%;
     transform: translateX(-10%);
     text-align: right;
