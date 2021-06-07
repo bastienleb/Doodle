@@ -20,7 +20,7 @@ fieldset{
 .logo_connexion{
     transform: translateX(-50%)translateY(-50%);
     left:50%;
-    top:20%;
+    top:10%;
     width: 600px;
     height: 300px;
     position: absolute;
@@ -181,9 +181,7 @@ fieldset{
     border-radius: 1em;
     border: solid 3px;
     width: 40%;
-    height: 75%;
-    min-width: 40%;
-    min-height: 75%;
+    height: 70%;
     background-color: blanchedalmond;
     overflow: auto;
 }
@@ -226,10 +224,11 @@ fieldset{
 
 .liste_sondage_user{
     position: absolute;
-    top: 20%;
-    left:90%;
+    left:75%;
+    top:19%;
     text-align: center;
-    transform: translateX(-90%)translateY(-0%);
+    transform: translateX(-50%)translateY(-10%);    
+    height: 70%;
 }
 
 .liste_sondage_user input{

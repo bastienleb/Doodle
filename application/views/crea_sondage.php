@@ -50,8 +50,8 @@
             <input type="text" name="descriptif" placeholder="descriptif" required><br>
             <input type="text" min="<?php echo date('Y-m-d'); ?>" name="date_debut" placeholder="date début" onfocus="this.type='date'"  required><br>
             <input type="text" min="<?php echo date('Y-m-d'); ?>" name="date_fin" placeholder="date fin" onfocus="this.type='date'" required><br>
-            <input type="text" name="heure_debut" min="00h00" placeholder="heure début" onfocus="this.type='time'" required><br>
-            <input type="text" name="heure_fin"  max="23h59"  placeholder="heure fin" step="900" onfocus="this.type='time'" required><br> 
+            <input type="text" name="heure_debut" min="00h00" placeholder="heure début" step="3600" onfocus="this.type='time'" required><br>
+            <input type="text" name="heure_fin"  max="23h59"  placeholder="heure fin" step="3600" onfocus="this.type='time'" required><br> 
             <input type="hidden" name="login" value='<?php echo($_SESSION['login'])?>'class="bouton3" required>
             <input type="submit" value="Créer le sondage" class="bouton3">
         </form>
@@ -59,22 +59,34 @@
 </fieldset>
 
 <fieldset class='liste_sondage_user'>
+    <legend>Sondage créer  </legend>
     <?php
-    echo "  <legend>Sondage créer  </legend>";
 
     foreach($sondages as $sondage){
         echo form_open('admin/resultat',array('method'=>'get','class'=>'former_sondage'));
         echo form_hidden('cle',hash("ripemd160",$sondage->titre));
-        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a href='../admin/delete/$sondage->titre'><i class='fa fa-times croix'></i></a> </p>" ;
+        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a href='#' onclick='test()'><i class='fa fa-times croix'></i></a> </p>" ;
          
         echo form_close();
+        $titre=$sondage->titre;
+        ?>
+        <script type="text/javascript">
+        function test(){
+            if ( confirm( "Suprimer le sondage ?" )) {
+                location.replace("../admin/delete/<?php echo $titre ?>");
+            }
+
+        }
+        </script>
+        <?php
     }   
+    
     ?>
 </fieldset>
+
 
 <style>
 body{
     overflow: hidden;
 }
 </style>
-
