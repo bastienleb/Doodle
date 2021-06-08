@@ -46,6 +46,19 @@
   
 </div>
 
+<?php
+foreach($titres as $titre){
+    echo "Le titre du sondage est : <b>".$titre->titre."</b>";
+
+    echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
+
+    echo "<a'> descriptif: $titre->descriptif css a faire </a>";
+
+}
+
+
+?>
+
 <fieldset class ="div_lien">
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>

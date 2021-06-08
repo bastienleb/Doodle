@@ -25,6 +25,13 @@
             header('Location:../home/jeux');
         }
 
+
+        foreach($titres as $titre){
+            echo "Le titre du sondage est : <b>".$titre->titre."</b>";
+
+            echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
+        }
+
      ?>
     
 
@@ -39,6 +46,7 @@
 
 <?php
 foreach($titres as $titre){
+    echo "descriptif: $titre->descriptif css a faire ";
     if($titre->clos==1){
         echo "Le sondage a été clos";
         $tmp=0;
