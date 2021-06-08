@@ -25,7 +25,7 @@ class Admin extends CI_Controller {
         $this->load->model('Securite');
         $this->load->model('ModeleUser');
         $this->load->model('ModeleResultat');
-        $this->load->model('Modelesondage');
+        $this->load->model('ModeleSondage');
 
         Securite::Connect();
 
@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 
             if(isset($clore)){
                 $data_update=array('clos'=>$clore); 
-                $update= $this->Modelesondage->update_sondage($data_update,$titre->titre);
+                $update= $this->ModeleSondage->update_sondage($data_update,$titre->titre);
             }
         }
         
