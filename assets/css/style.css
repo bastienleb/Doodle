@@ -1,5 +1,5 @@
 body{
-    background-color: #ecdfdf;
+    background-color: palevioletred/*#ecdfdf*/;
 }
 
 a{
@@ -412,6 +412,7 @@ th{
     color: white;
     font-size: 1.1em;
     font-family: Arial, "Arial Black", Times, "Times New Roman", serif;
+    border: solid 1px black;
 }
 
 td{
@@ -507,5 +508,3 @@ table input[type="checkbox"]:focus:checked:not(:disabled):after {
 table input[type="checkbox"]:disabled {
     opacity: 0.5;
 }
-  
-

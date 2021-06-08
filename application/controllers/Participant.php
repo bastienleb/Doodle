@@ -26,13 +26,10 @@ class Participant extends CI_Controller {
 
         $titres = $this->ModeleUser->get_titre();
         $data=array('titres' => $titres);
-
-        $titre=$this->input->post('titre');
-        $choix[]=$this->input->post('choix');
         
-        if(isset($titre) && isset($choix)){
+        if(isset($_POST['titre']) && isset($_POST['choix'])){
             echo "Titre :<b>".$_POST['titre']."</b><br>";
-            foreach($choix AS $cle=>$value){
+            foreach($_POST['choix'] AS $cle=>$value){
                 $tmp_jour=0;
                 $tmp_heure=0;
                 $max=3;

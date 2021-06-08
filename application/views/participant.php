@@ -131,4 +131,3 @@ foreach($titres as $titre){
     }
 }
 ?>
-
