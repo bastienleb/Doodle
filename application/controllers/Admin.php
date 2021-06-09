@@ -50,6 +50,31 @@ class Admin extends CI_Controller {
                 $update= $this->ModeleSondage->update_sondage($data_update,$titre->titre);
             }
         }
+
+        $tout=$this->ModeleSondage->get_sondage($_SESSION['login']);
+        $data_tout = array('tout',$tout);
+
+        foreach($tout as $ta){
+            $date_deb=date("l d-m-Y ", strtotime($titre->date_debut));
+            $date_finn=date("l d-m-Y ", strtotime($titre->date_fin));
+
+            $heure_deb=date("H",strtotime($titre->heure_debut));
+            $heure_finn=date("H",strtotime($titre->heure_fin));
+
+            $date=$date_deb;
+            $totd=1;
+            $jour = array(null);
+
+            while(!($date==$date_finn)){
+                $date = date("l d-m-Y ", mktime (0,0,0,date("m", strtotime($ta->date_debut) ) ,date("d", strtotime($ta->date_debut) )+$totd,date("Y", strtotime($ta->date_debut) )));
+                $add = array($totd+1=>$date);
+                $adddeb = array(0=>$date_deb);
+                $jour = array_replace($jour,$add,$adddeb);
+                $totd++;
+            }
+
+            var_dump($jour);
+        }
         
 
 

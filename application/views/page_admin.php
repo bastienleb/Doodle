@@ -47,13 +47,17 @@
 </div>
 
 <?php
+$tmptitre=0;
 foreach($titres as $titre){
+    if($tmptitre==0){
     echo "Le titre du sondage est : <b>".$titre->titre."</b>";
 
     echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
 
     echo "<a'> descriptif: $titre->descriptif css a faire </a>";
 
+    $tmptitre=1;
+    }
 }
 
 
@@ -69,7 +73,7 @@ foreach($titres as $titre){
 
     <form method="post" id="clos">
         <input type="hidden" name="clore" value="1">
-        <input type="submit" value="clore le sondage">
+        <input type="submit" value="clore le sondage [marche pas]">
     </form>
     
     <?php
@@ -143,19 +147,40 @@ foreach($titres as $titre){
                                 $choix=array(null);
                                 $rdv[$jour[$k]][$heure] =  "creneaux vide";
 
-                            }
-                        }
-                        foreach($verif as $v){
-                            $heure_finnnnnn=trim($v->heure);
-                            $tmp=$v->login;
-                            foreach ($verif as $q) {
-                                $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$tmp</p>";
-                            }
-                        }
-                        
 
-                        echo "<td>";
-                        
+
+                            }
+                            
+
+                            foreach($verif as $v){
+                                $heure_finnnnnn=trim($v->heure);
+                                $tmp=$v->login;
+                                foreach ($verif as $q) {
+                                    $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$tmp</p>";
+                                }
+                            }
+                            
+                            
+                            /*
+                            foreach($verif as $v){
+                                $this->load->model('ModeleResultat');
+                                // echo $jour[$k]."<br>";
+                                // echo $heure."<br>";
+                                
+                                $resultat=$this->ModeleResultat->affi_reponse($jour[$k],$heure,$v->titre_sondage);
+                                
+                                /*$data_res=array('resultat'=> $resultat);
+    
+                                foreach($resultat as $r){
+                                    echo $r->jour."<br>";
+                                    echo $r->heure."<br>";
+                                    //$rdv[$r->jour][$r->heure] =  "creneaux pas vide";
+                                }* /
+                            }*/
+
+                        }
+                            echo "<td>";
+                            
                         if(isset($rdv[$jour[$i+1]][$heure])) {
                             echo $rdv[$jour[$i+1]][$heure];
                         }
