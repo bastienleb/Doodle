@@ -43,6 +43,7 @@ class ModeleResultat extends CI_Model {
         $this->db->where('jour',$jour);
         $this->db->where('heure',$heure);
         $this->db->where('titre_sondage', $titre);
+        $this->db->order_by('heure', 'ASC');
         $query=$this->db->get();
         return $query->result();
     }

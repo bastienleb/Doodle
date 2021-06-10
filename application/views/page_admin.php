@@ -157,10 +157,25 @@ foreach($titres as $titre){
                                 $data_test=array('result',$result);
                                 foreach($result as $dt){
                                     $nbr=count($result);
-                                    $message="<p class='plein'>$dt->login</p>";
-                                    $rdv["$v->jour"][$heure_finnnnnn] =$message;
+                                    $message=array("<p class='plein'>$dt->login</p>");
+                                    $message_fin = implode("", $message);
+                                    $rdv["$v->jour"][$heure_finnnnnn] =$message_fin;
                                     if($nbr>1){
-                                        $rdv["$v->jour"][$heure_finnnnnn] =$message.$message;
+                                        $nbr_tmp=0;
+                                        $message_array=array();
+                                        while($nbr_tmp<=$nbr){
+                                            //echo $nbr_tmp;
+                                            $msg=array($nbr_tmp+1=>$message);
+                                            $nbr_tmp++;
+
+                                        }
+                                        $message_array=array_replace($message,$msg);
+
+                                        //var_dump($message_array);
+                                        //$message_final = implode("", $message_array);
+                                        //echo $message_final;
+                                        //$rdv["$v->jour"][$heure_finnnnnn] = $message_final;
+                                        
                                     }
                                     
                                 }
