@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
                     $data_update=array('clos'=>$clore); 
                     $update= $this->ModeleSondage->update_sondage($data_update,$titre->titre);
                 }
-            }
+            }/*
 
             $tout=$this->ModeleSondage->get_sondage($_SESSION['login']);
             $data_tout = array('tout',$tout);
@@ -81,17 +81,7 @@ class Admin extends CI_Controller {
                     $jour = array_replace($jour,$add,$adddeb);
                     $totd++;
                 }
-                //var_dump($jour);
-                /*
-                foreach($verif as $v){
-                    //var_dump($v);
-                    for($k=0 ; $k<= $totd ; $k++){
-                        if($v->jour==$jour[$k]){
-                            echo 'pomme de terre';
-                        }
-                    }
-                }*/
-            }
+            }*/
             
 
 

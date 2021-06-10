@@ -154,24 +154,6 @@ foreach($titres as $titre){
                                 }
                             }
                             
-                            
-                            /*
-                            foreach($verif as $v){
-                                $this->load->model('ModeleResultat');
-                                // echo $jour[$k]."<br>";
-                                // echo $heure."<br>";
-                                
-                                $resultat=$this->ModeleResultat->affi_reponse($jour[$k],$heure,$v->titre_sondage);
-                                
-                                /*$data_res=array('resultat'=> $resultat);
-    
-                                foreach($resultat as $r){
-                                    echo $r->jour."<br>";
-                                    echo $r->heure."<br>";
-                                    //$rdv[$r->jour][$r->heure] =  "creneaux pas vide";
-                                }* /
-                            }*/
-
                         }
                             echo "<td>";
                             
