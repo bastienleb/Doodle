@@ -23,9 +23,12 @@ class Participant extends CI_Controller {
     public function choix(){
         $this->load->model('ModeleUser');
         $this->load->model('ModeleResultat');
+        $this->load->model('ModeleSondage');
 
         $titres = $this->ModeleUser->get_titre();
         $data=array('titres' => $titres);
+
+        
         
         if(isset($_POST['titre']) && isset($_POST['choix'])){
             echo "Titre :<b>".$_POST['titre']."</b><br>";
@@ -56,12 +59,10 @@ class Participant extends CI_Controller {
                     
                     $tmp_heure++;
                 }
-                
-                    
-                   
-                $jourfinal = implode("", $jourfin);
-                $heurefinal = implode("", $heurefin);               
 
+                $jourfinal = implode("", $jourfin);
+                $heurefinal = implode("", $heurefin);     
+                    
                 $data_sondage=array(
                     'login'=>$login,
                     'jour'=> $jourfinal,

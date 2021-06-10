@@ -25,11 +25,14 @@
             header('Location:../home/jeux');
         }
 
-
+        $tmp=0;
         foreach($titres as $titre){
+            if($tmp==0){
             echo "Le titre du sondage est : <b>".$titre->titre."</b>";
 
             echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
+            $tmp=1;
+            }
         }
 
      ?>
@@ -73,7 +76,6 @@ foreach($titres as $titre){
             $date_finn=date("l d-m-Y", strtotime($titre->date_fin));
 
             $heure_deb=date("H",strtotime($titre->heure_debut));
-            $min_deb=date("i",strtotime($titre->heure_debut));
             $heure_finn=date("H",strtotime($titre->heure_fin));
 
             $date=$date_deb;

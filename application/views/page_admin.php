@@ -106,8 +106,7 @@ foreach($titres as $titre){
         foreach($titres as $titre){              
             $titre_hash= hash("ripemd160",$titre->titre);
             $tmp=0;
-            
-            if($_GET['cle']==$titre_hash){
+            if($_GET['cle']==$titre_hash && $titre->createur==$_SESSION['login']){
                 $date_deb=date("l d-m-Y ", strtotime($titre->date_debut));
                 $date_finn=date("l d-m-Y ", strtotime($titre->date_fin));
 
@@ -143,15 +142,10 @@ foreach($titres as $titre){
                             echo "<td class=\"time\">".$heure."h</td>";
                         }
                         for($k=0 ; $k<= $totd ; $k++){
-                            for($o=0 ; $o<=$j ; $o++){
                                 $choix=array(null);
                                 $rdv[$jour[$k]][$heure] =  "creneaux vide";
-
-
-
-                            }
+                          
                             
-
                             foreach($verif as $v){
                                 $heure_finnnnnn=trim($v->heure);
                                 $tmp=$v->login;
