@@ -102,7 +102,7 @@ foreach($titres as $titre){
 
     <table>
     <?php
-        $tmp=0;
+        $test=0; 
         foreach($titres as $titre){              
             $titre_hash= hash("ripemd160",$titre->titre);
             $tmp=0;
@@ -145,17 +145,32 @@ foreach($titres as $titre){
                                 $choix=array(null);
                                 $rdv[$jour[$k]][$heure] =  "creneaux vide";
                           
-                            
                             foreach($verif as $v){
+                                
                                 $heure_finnnnnn=trim($v->heure);
                                 $tmp=$v->login;
-                                foreach ($verif as $q) {
-                                    $rdv["$v->jour"][$heure_finnnnnn] ="<p class='plein'>$tmp</p>";
+                                
+                                
+                                $this->load->model('ModeleResultat');
+                                $result=$this->ModeleResultat->affi_reponse($v->jour,' 08',$titre->titre);
+                                
+                                $data_test=array('result',$result);
+                                foreach($result as $dt){
+                                    $nbr=count($result);
+                                    $message="<p class='plein'>$dt->login</p>";
+                                    $rdv["$v->jour"][$heure_finnnnnn] =$message;
+                                    if($nbr>1){
+                                        $rdv["$v->jour"][$heure_finnnnnn] =$message.$message;
+                                    }
+                                    
                                 }
+                                
+                                //var_dump($data_test);                                   
                             }
-                            
                         }
-                            echo "<td>";
+
+                        
+                        echo "<td>";
                             
                         if(isset($rdv[$jour[$i+1]][$heure])) {
                             echo $rdv[$jour[$i+1]][$heure];
