@@ -66,13 +66,13 @@ foreach($titres as $titre){
 <fieldset class ="div_lien">
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
-        <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
+        <span><a id="tocopy" >http://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
     </p>
 
 
     <form method="post" id="clos">
-        <input type="hidden" name="clore" value="1">
+        <input type="hidden" name="clore" value="0">
         <input type="submit" value="clore le sondage [marche pas]">
     </form>
     
@@ -92,7 +92,31 @@ foreach($titres as $titre){
 </fieldset>
 
 
+<?php
+$g=0;
+$test=1;
+$testeeee=array($g=>"pate");
+foreach($verif as $v){
+    if($testeeee[$g]!=$v->login){
+        $g++;
+        $testeeee=array($g=>$v->login);
+    }
 
+
+
+    $msg=array();
+    if($test==$g){
+        echo $testeeee[$test]."<br>";
+        $msg=array($test=>$testeeee[$test]);
+
+        $test++;
+    }
+    
+        $message=array("<p class='plein'>$testeeee[$g]</p>");
+        $message_fin = implode("", $message);
+    
+}   
+?>
 
 
 
@@ -146,42 +170,10 @@ foreach($titres as $titre){
                                 $rdv[$jour[$k]][$heure] =  "creneaux vide";
                           
                             foreach($verif as $v){
-                                
                                 $heure_finnnnnn=trim($v->heure);
-                                $tmp=$v->login;
-                                
-                                
-                                $this->load->model('ModeleResultat');
-                                $result=$this->ModeleResultat->affi_reponse($v->jour,' 08',$titre->titre);
-                                
-                                $data_test=array('result',$result);
-                                foreach($result as $dt){
-                                    $nbr=count($result);
-                                    $message=array("<p class='plein'>$dt->login</p>");
-                                    $message_fin = implode("", $message);
-                                    $rdv["$v->jour"][$heure_finnnnnn] =$message_fin;
-                                    if($nbr>1){
-                                        $nbr_tmp=0;
-                                        $message_array=array();
-                                        while($nbr_tmp<=$nbr){
-                                            //echo $nbr_tmp;
-                                            $msg=array($nbr_tmp+1=>$message);
-                                            $nbr_tmp++;
-
-                                        }
-                                        $message_array=array_replace($message,$msg);
-
-                                        //var_dump($message_array);
-                                        //$message_final = implode("", $message_array);
-                                        //echo $message_final;
-                                        //$rdv["$v->jour"][$heure_finnnnnn] = $message_final;
-                                        
-                                    }
-                                    
-                                }
-                                
-                                //var_dump($data_test);                                   
+                                $rdv[$v->jour][$heure_finnnnnn] =$message_fin;
                             }
+                               
                         }
 
                         

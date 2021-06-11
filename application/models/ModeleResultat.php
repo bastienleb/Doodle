@@ -29,6 +29,7 @@ class ModeleResultat extends CI_Model {
     
 
     public function get_resultat($titre){
+        $this->db->distinct();
         $this->db->select('*')->from('doodle_repondu')->where('titre_sondage',$titre);
         $query=$this->db->get();
         return $query->result();
@@ -36,16 +37,6 @@ class ModeleResultat extends CI_Model {
 
     public function sup_reponse($titre){
         return $this->db->where('titre_sondage', $titre)->delete('doodle_repondu');
-    }
-
-    public function affi_reponse($jour,$heure,$titre){
-        $this->db->select('*')->from('doodle_repondu');
-        $this->db->where('jour',$jour);
-        $this->db->where('heure',$heure);
-        $this->db->where('titre_sondage', $titre);
-        $this->db->order_by('heure', 'ASC');
-        $query=$this->db->get();
-        return $query->result();
     }
 }
 ?>
