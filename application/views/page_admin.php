@@ -66,7 +66,7 @@ foreach($titres as $titre){
 <fieldset class ="div_lien">
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
-        <span><a id="tocopy" >http://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
+        <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
     </p>
 
@@ -123,75 +123,68 @@ foreach($verif as $v){
 <fieldset>
 
 <legend class="legend_sondage">  Disponibilité des différents participants suite au sondage </legend>
+    <table border="5" cellspacing="0" align="center">
+        
 
-    <table>
-    <?php
-        $test=0; 
-        foreach($titres as $titre){              
-            $titre_hash= hash("ripemd160",$titre->titre);
-            $tmp=0;
-            if($_GET['cle']==$titre_hash && $titre->createur==$_SESSION['login']){
-                $date_deb=date("l d-m-Y ", strtotime($titre->date_debut));
-                $date_finn=date("l d-m-Y ", strtotime($titre->date_fin));
-
-                $heure_deb=date("H",strtotime($titre->heure_debut));
-                $heure_finn=date("H",strtotime($titre->heure_fin));
-
-                $date=$date_deb;
-                $totd=1;
-                $jour = array(null,$date_deb);
-                
-                echo "<form method='POST'>";
-                
-                while(!($date==$date_finn)){
-                    $date = date("l d-m-Y ", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
-                    $add = array($totd+1=>$date);
-                    $adddeb = array(1=>$date_deb);
-                    $jour = array_replace($jour,$add,$adddeb);
-                    $totd++;
-                }
-                echo "<tr><th>Heure</th>";
-                for($x = 1; $x < $totd+1; $x++)
-                echo "<th>".$jour[$x]."</th>";
-                echo "</tr>";
-                for($j = $heure_deb; $j <= $heure_finn; $j += 0.5) {
-                    echo "<tr>";
-                    for($i = 0; $i < $totd; $i++) {
-                        if($i == 0) {
-                            $heure = str_replace(".5", ":30", $j);
-                            if($heure<10 && !($j == $heure_deb)){
-                                $heure=array(0,$heure);
-                                $heure = implode("", $heure);
-                            }
-                            echo "<td class=\"time\">".$heure."h</td>";
-                        }
-                        for($k=0 ; $k<= $totd ; $k++){
-                                $choix=array(null);
-                                $rdv[$jour[$k]][$heure] =  "creneaux vide";
-                          
-                            foreach($verif as $v){
-                                $heure_finnnnnn=trim($v->heure);
-                                $rdv[$v->jour][$heure_finnnnnn] =$message_fin;
-                            }
-                               
-                        }
-
-                        
-                        echo "<td>";
-                            
-                        if(isset($rdv[$jour[$i+1]][$heure])) {
-                            echo $rdv[$jour[$i+1]][$heure];
-                        }
-                        echo "</td>";
-                        
-                    }
-                    echo "</tr>";
-                }
-                echo "</form>";
-            }
+            <?php
+            foreach($titres as $titre){
+                $titre_hash= hash("ripemd160",$titre->titre);
             
+            
+                if($_GET['cle']==$titre_hash){
+                    $date_deb=date("l d-m-Y", strtotime($titre->date_debut));
+                    $date_finn=date("l d-m-Y", strtotime($titre->date_fin));
+        
+        
+                    $date=$date_deb;
+                    $totd=1;
+                    $jour = array('heure',$date_deb);
+
+                    while(!($date==$date_finn)){
+                        $date = date("l d-m-Y", mktime (0,0,0,date("m", strtotime($titre->date_debut) ) ,date("d", strtotime($titre->date_debut) )+$totd,date("Y", strtotime($titre->date_debut) )));
+                        $add = array($totd+1=>$date);
+                        $adddeb = array(1=>$date_deb);
+                        $jour = array_replace($jour,$add,$adddeb);
+                        $totd++;
+                    }
+                    for ($i=0; $i < $totd; $i++) { 
+                        echo"<td class='test'>
+                            <b>$jour[$i]</b>
+                        </td>";
+                    }
+                }
+            }
+            ?>
+
+        </tr>
+        <tr>
+
+        <?php
+        
+        foreach($titres as $titre){
+            $heure_deb=date("H",strtotime($titre->heure_debut));
+            $heure_finn=date("H",strtotime($titre->heure_fin));
+            for ($j=$heure_deb; $j <$heure_finn ; $j += 0.5) { 
+               $heure = str_replace(".5", ":30", $j);
+               if($heure<10 && !($j == $heure_deb)){
+                   $heure=array(0,$heure);
+                   $heure = implode("", $heure);
+                }
+
+                echo "<tr>
+                      <td>
+                      <b>".$heure."h</b></td>";
+
+                for ($k=0; $k < $totd-1  ; $k++) { 
+                    echo "<td> vide </td>";
+                }
+                
+                echo"</td>
+                     </tr>";
+            }
         }
-    ?>
+        
+        ?>
     </table>
 
 </fieldset>

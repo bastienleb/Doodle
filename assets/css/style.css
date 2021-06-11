@@ -391,40 +391,6 @@ fieldset{
 
 /* -------------------- Page Partipant -------------------- */
 
-caption{
-    margin: auto; 
-    font-family: Arial, Times, "Times New Roman", serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #009900;
-    margin-bottom: 20px; 
-}
-
-table{
-    background-color: blanchedalmond;
-    margin: auto; 
-    border: 4px outset black; 
-    border-collapse: collapse;
-    width:100%;
-}
-th{
-    background-color: rgb(47, 194, 186);
-    color: white;
-    font-size: 1.1em;
-    font-family: Arial, "Arial Black", Times, "Times New Roman", serif;
-    border: solid 1px black;
-}
-
-td{
-    border: 1px solid black;
-    font-family: "Comic Sans MS", "Trebuchet MS", Times, "Times New Roman", serif;
-    text-align: center; 
-    padding: 5px; 
-}
-
-td.time{
-    width:5%;
-}
 
 .logo_participant{
     left: 50%;
