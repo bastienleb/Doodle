@@ -91,35 +91,6 @@ foreach($titres as $titre){
     ?>
 </fieldset>
 
-
-<?php
-$g=0;
-$test=1;
-$testeeee=array($g=>"pate");
-foreach($verif as $v){
-    if($testeeee[$g]!=$v->login){
-        $g++;
-        $testeeee=array($g=>$v->login);
-    }
-
-
-
-    $msg=array();
-    if($test==$g){
-        echo $testeeee[$test]."<br>";
-        $msg=array($test=>$testeeee[$test]);
-
-        $test++;
-    }
-    
-        $message=array("<p class='plein'>$testeeee[$g]</p>");
-        $message_fin = implode("", $message);
-    
-}   
-?>
-
-
-
 <fieldset>
 
 <legend class="legend_sondage">  Disponibilité des différents participants suite au sondage </legend>
@@ -174,11 +145,47 @@ foreach($verif as $v){
                 echo "<tr>
                       <td>
                       <b>".$heure."h</b></td>";
-
-                for ($k=0; $k < $totd-1  ; $k++) { 
-                    echo "<td> vide </td>";
+                      $tmp=0;
+                foreach ($verif as $v ){
+                    for ($h=0; $h < $totd-1  ; $h++) {
+                        if($v->heure===$heure && $v->jour===$jour[$h+1]){
+                            $test=array(0=>"$v->login<br>");
+                            $tmp++;
+                        }
+                    }
                 }
-                
+                foreach ($verif as $v ) {
+                    echo "<td>";
+                    for ($k=0; $k < $tmp-1  ; $k++) {
+                        echo $test[$k];
+                        $test_add=array($k=>"$v->login<br>");
+                        $test=array_replace($test,$test_add);
+                    }
+                    for ($h=0; $h < $totd-1; $h++) {
+
+                        if($v->heure===$heure)$pate='true <br>';
+                        else$pate='false <br>';
+                        if($v->jour===$jour[$h+1])$patee='true <br>';
+                        else$patee='false <br>';
+
+                        //$pate = implode("", $pate);
+                        //$patee = implode("", $patee);
+
+                        // echo "heure $pate";
+                        // echo "jour $patee";
+                        if($v->heure===$heure && $v->jour===$jour[$h+1]){
+                            
+                            for($l=0;$l<=$k-1   ;$l++){
+                                echo $test[$l]."<br>";
+                            }
+                        }
+                        else{
+                            echo " vide ";
+                        } 
+                    }
+                    echo "</td>";
+                }
+
                 echo"</td>
                      </tr>";
             }
