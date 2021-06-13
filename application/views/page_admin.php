@@ -49,14 +49,18 @@
 <?php
 $tmptitre=0;
 foreach($titres as $titre){
-    if($tmptitre==0){
-    echo "Le titre du sondage est : <b>".$titre->titre."</b>";
+    $titre_hash= hash("ripemd160",$titre->titre);
+    if($_GET['cle']==$titre_hash){ 
+        $titre_fin=$titre->titre;
+        if($tmptitre==0){
+        echo "Le titre du sondage est : <b>".$titre->titre."</b>";
 
-    echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
+        echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
 
-    echo "<a'> descriptif: $titre->descriptif css a faire </a>";
+        echo "<a'> descriptif: $titre->descriptif css a faire </a>";
 
-    $tmptitre=1;
+        $tmptitre=1;
+        }
     }
 }
 
@@ -72,22 +76,22 @@ foreach($titres as $titre){
 
 
     <form method="post" id="clos">
-        <input type="hidden" name="clore" value="0">
-        <input type="submit" value="clore le sondage [marche pas]">
+        <input type="hidden" name="clore" value="1">
+        <input type="submit" value="Clore le sondage">
     </form>
     
     <?php
     foreach($titres as $titre){
-            if($titre->clos==1){
-                echo "Le sondage est clos";
-                ?>
-                <script type="text/javascript">
-                    document.getElementById('clos').style.display = 'none';
-                </script>
+        if($titre->clos==1){
+            echo "Le sondage est clos";
+            ?>
+            <script type="text/javascript">
+                document.getElementById('clos').style.display = 'none';
+            </script>
 
-                <?php
-            }   
-        }
+            <?php
+        }  
+}
     ?>
 </fieldset>
 
@@ -132,64 +136,53 @@ foreach($titres as $titre){
 
         <?php
         
+        $participant=array();
+        $participant_tmp=0;
+        //$tmpparticipant=0;
         foreach($titres as $titre){
-            $heure_deb=date("H",strtotime($titre->heure_debut));
-            $heure_finn=date("H",strtotime($titre->heure_fin));
-            for ($j=$heure_deb; $j <$heure_finn ; $j += 0.5) { 
-               $heure = str_replace(".5", ":30", $j);
-               if($heure<10 && !($j == $heure_deb)){
-                   $heure=array(0,$heure);
-                   $heure = implode("", $heure);
-                }
+            $titre_hash= hash("ripemd160",$titre->titre);
 
-                echo "<tr>
-                      <td>
-                      <b>".$heure."h</b></td>";
-                      $tmp=0;
-                foreach ($verif as $v ){
+        
+            if($_GET['cle']==$titre_hash){ 
+                $heure_deb=date("H",strtotime($titre->heure_debut));
+                $heure_finn=date("H",strtotime($titre->heure_fin));
+                for ($j=$heure_deb; $j <=$heure_finn ; $j += 0.5) { 
+                $heure = str_replace(".5", ":30", $j);
+                if($heure<10 && !($j == $heure_deb)){
+                    $heure=array(0,$heure);
+                    $heure = implode("", $heure);
+                    }
+
+                    echo "<tr>
+                        <td>
+                        <b>".$heure."h</b></td>";
+                        $tmp=0;
                     for ($h=0; $h < $totd-1  ; $h++) {
-                        if($v->heure===$heure && $v->jour===$jour[$h+1]){
-                            $test=array(0=>"$v->login<br>");
-                            $tmp++;
-                        }
-                    }
-                }
-                foreach ($verif as $v ) {
-                    echo "<td>";
-                    for ($k=0; $k < $tmp-1  ; $k++) {
-                        echo $test[$k];
-                        $test_add=array($k=>"$v->login<br>");
-                        $test=array_replace($test,$test_add);
-                    }
-                    for ($h=0; $h < $totd-1; $h++) {
-
-                        if($v->heure===$heure)$pate='true <br>';
-                        else$pate='false <br>';
-                        if($v->jour===$jour[$h+1])$patee='true <br>';
-                        else$patee='false <br>';
-
-                        //$pate = implode("", $pate);
-                        //$patee = implode("", $patee);
-
-                        // echo "heure $pate";
-                        // echo "jour $patee";
-                        if($v->heure===$heure && $v->jour===$jour[$h+1]){
+                        echo "<td>";
+                        foreach($verif as $v => $val){
+                            $titre_hash= hash("ripemd160",$titre_fin);
                             
-                            for($l=0;$l<=$k-1   ;$l++){
-                                echo $test[$l]."<br>";
+                            if($_GET['cle']==$titre_hash){  
+                                $add_participant_login=array($participant_tmp=>$val->login);
+                                $add_participant_jour=array($participant_tmp+1=>$val->jour);
+                                $add_participant_heure=array($participant_tmp+2=>$val->heure);
+                                
+                                $participant=array_replace($participant,$add_participant_login,$add_participant_jour,$add_participant_heure);
+                            }
+                            if($heure==$participant[2] && $jour[$h+1]==$participant[1]){
+                                echo $participant[0]."<br>";
                             }
                         }
-                        else{
-                            echo " vide ";
-                        } 
+                        echo "</td>";
                     }
-                    echo "</td>";
-                }
 
-                echo"</td>
-                     </tr>";
+                    echo"</td>
+                        </tr>";
+                }
             }
         }
+
+        
         
         ?>
     </table>

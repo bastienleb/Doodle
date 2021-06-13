@@ -370,15 +370,6 @@ fieldset{
 
 }
 
-.plein{
-    background-color: green;
-    border:solid 1px green;
-    border-radius: 0.5em;
-    width: 50%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
 .logo_admin{
     left: 50%;

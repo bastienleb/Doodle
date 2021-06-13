@@ -44,21 +44,22 @@ class Admin extends CI_Controller {
             foreach($titres as $titre){
                 $heure_deb=date("H",strtotime($titre->heure_debut));
                 $heure_finn=date("H",strtotime($titre->heure_fin));
+
                 $titre_hash= hash("ripemd160",$titre->titre);
 
                 $clore=$this->input->post('clore');
-
+                $test="";
                 if($_GET['cle']==$titre_hash){
+                        $test=$titre->titre;
                         $verif = $this->ModeleResultat->get_resultat($titre->titre); 
                         $data_verif=array('verif' => $verif);
                         $data=array_replace($data,$data_verif);
-                }
-
+                }                 
+            }
                 if(isset($clore)){
                     $data_update=array('clos'=>$clore); 
-                    $update= $this->ModeleSondage->update_sondage($data_update,$titre->titre);
+                    $update= $this->ModeleSondage->update_sondage($data_update,$test);
                 }
-            }
             
 
 
