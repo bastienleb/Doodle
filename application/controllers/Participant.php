@@ -27,9 +27,7 @@ class Participant extends CI_Controller {
 
         $titres = $this->ModeleUser->get_titre();
         $data=array('titres' => $titres);
-
-        
-        
+  
         if(isset($_POST['titre']) && isset($_POST['choix'])){
             echo "Titre :<b>".$_POST['titre']."</b><br>";
             foreach($_POST['choix'] AS $cle=>$value){
@@ -40,35 +38,34 @@ class Participant extends CI_Controller {
                 $jourfin = array("null");
                 $heurefin = array("null");
                 $titre=$_POST['titre'];
-
-                if(strlen($value)>=23 && $value[strlen($value)-3]== ":"){
+                
+                if(strlen($value)>=22 && $value[strlen($value)-3]== ":"){
                     $max=6;
                 }
                 
                 for($i=0;$i<=strlen($value)-$max;$i++){
                     $jour=array($tmp_jour=>$value[$i]);
                     $jourfin=array_replace($jourfin,$jour);
-                                        
+                    
                     $tmp_jour++;
                 }
-
-                for($j=strlen($value)-$max;$j<strlen($value);$j++){
+                for($j=strlen($value)-$max+1;$j<strlen($value);$j++){
                     $heure=array($tmp_heure=>$value[$j]);
                     $heurefin=array_replace($heurefin,$heure);
                     $tmp=implode("", $heurefin);
                     
                     $tmp_heure++;
                 }
-
+                
                 $jourfinal = implode("", $jourfin);
                 $heurefinal = implode("", $heurefin);     
-                    
+                
                 $data_sondage=array(
                     'login'=>$login,
                     'jour'=> $jourfinal,
                     'heure'=>$heurefinal,
                     'titre_sondage'=>$titre
-                );
+                );              
 
                 if($this->ModeleResultat->addresultat($data_sondage)){
                     header('Location:valider');

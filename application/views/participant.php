@@ -61,7 +61,7 @@ foreach($titres as $titre){
 
 echo "<form method='POST'>";
 
-echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom'>";
+echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom'>";
 echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 ?>
 
@@ -109,7 +109,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
         foreach($titres as $titre){
             $heure_deb=date("H",strtotime($titre->heure_debut));
             $heure_finn=date("H",strtotime($titre->heure_fin));
-            for ($j=$heure_deb; $j <$heure_finn ; $j += 0.5) { 
+            for ($j=$heure_deb; $j <=$heure_finn ; $j += 0.5) { 
                $heure = str_replace(".5", ":30", $j);
                if($heure<10 && !($j == $heure_deb)){
                    $heure=array(0,$heure);
@@ -120,22 +120,20 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
                       <td>
                       <b>".$heure."h</b></td>";
 
-                for ($k=0; $k < $totd-1  ; $k++) { 
-                    //echo "<td> vide </td>";
+                for ($k=1; $k < $totd  ; $k++) { 
                     $choix=array(null);
-                        
-                    echo "<td><input type='checkbox' name='choix[]' value='$jour[$k] $heure'></td>";
+                    
+                    echo "<td><input type='checkbox' name='choix[]' value='$jour[$k]$heure'></td>";
                 }
+                echo "<input type='hidden' value='$titre->titre' name='titre'";
                 
                 echo"</td>
                      </tr>";
             }
         }
-        
         ?>
     </table>
-
-</fieldset>
 <?php
 echo "</form>"
 ?>
+</fieldset>
