@@ -83,7 +83,7 @@ foreach($titres as $titre){
     <?php
     foreach($titres as $titre){
         if($titre->clos==1){
-            echo "Le sondage est clos";
+            echo "<h3 class=''>Le sondage est clos</h3>";
             ?>
             <script type="text/javascript">
                 document.getElementById('clos').style.display = 'none';

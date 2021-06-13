@@ -51,7 +51,7 @@
 foreach($titres as $titre){
     echo "descriptif: $titre->descriptif css a faire ";
     if($titre->clos==1){
-        echo "Le sondage a été clos";
+        echo "<h3 class='fermeture'>Le sondage est clos</h3>";
         $tmp=0;
     }
     else{

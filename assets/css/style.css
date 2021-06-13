@@ -302,6 +302,11 @@ fieldset{
     border-radius: 0.5em;
 }  
 
+.fermeture{
+    color: red;
+    text-align: center;
+}
+
 .liste_participant{
     background-color: blanchedalmond;
     border-radius: 1em;
