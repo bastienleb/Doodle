@@ -17,4 +17,4 @@
 </div>
 
 
-<h1>Le creneau est valider<h1>
+<h1>Le creneau est validé<h1>

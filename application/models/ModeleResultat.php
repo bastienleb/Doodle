@@ -29,6 +29,7 @@ class ModeleResultat extends CI_Model {
     
 
     public function get_resultat($titre){
+        $this->db->distinct();
         $this->db->select('*')->from('doodle_repondu')->where('titre_sondage',$titre);
         $query=$this->db->get();
         return $query->result();

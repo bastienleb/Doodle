@@ -61,7 +61,7 @@ foreach($titres as $titre){
 
 echo "<form method='POST'>";
 
-echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom'>";
+echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' maxlength='20'>";
 echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 ?>
 
