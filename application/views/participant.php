@@ -92,7 +92,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
                         $jour = array_replace($jour,$add,$adddeb);
                         $totd++;
                     }
-                    for ($i=0; $i < $totd; $i++) { 
+                    for ($i=0; $i <= $totd; $i++) { 
                         echo"<td class='test'>
                             <b>$jour[$i]</b>
                         </td>";
@@ -120,7 +120,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
                       <td>
                       <b>".$heure."h</b></td>";
 
-                for ($k=1; $k < $totd  ; $k++) { 
+                for ($k=1; $k <= $totd  ; $k++) { 
                     $choix=array(null);
                     
                     echo "<td><input type='checkbox' name='choix[]' value='$jour[$k]$heure'></td>";

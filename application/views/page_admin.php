@@ -122,7 +122,7 @@ foreach($titres as $titre){
                         $jour = array_replace($jour,$add,$adddeb);
                         $totd++;
                     }
-                    for ($i=0; $i < $totd; $i++) { 
+                    for ($i=0; $i <= $totd; $i++) { 
                         echo"<td class='test'>
                             <b>$jour[$i]</b>
                         </td>";
@@ -157,7 +157,7 @@ foreach($titres as $titre){
                         <td>
                         <b>".$heure."h</b></td>";
                         $tmp=0;
-                    for ($h=0; $h < $totd-1  ; $h++) {
+                    for ($h=0; $h < $totd  ; $h++) {
                         echo "<td>";
                         foreach($verif as $v => $val){
                             $titre_hash= hash("ripemd160",$titre_fin);
