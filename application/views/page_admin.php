@@ -123,7 +123,7 @@ foreach($titres as $titre){
                         $totd++;
                     }
                     for ($i=0; $i <= $totd; $i++) { 
-                        echo"<td class='test'>
+                        echo"<td class='jour'>
                             <b>$jour[$i]</b>
                         </td>";
                     }
@@ -154,7 +154,7 @@ foreach($titres as $titre){
                     }
 
                     echo "<tr>
-                        <td>
+                        <td class='heure'>
                         <b>".$heure."h</b></td>";
                         $tmp=0;
                     for ($h=0; $h < $totd  ; $h++) {

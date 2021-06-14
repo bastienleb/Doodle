@@ -78,7 +78,6 @@ class Admin extends CI_Controller {
         Securite::Connect();
         
         $titre=str_replace("%20"," ",$titre);
-        echo $titre;
         
         if($this->ModeleSondage->sup_sondage($titre) && $this->ModeleResultat->sup_reponse($titre)){
             header("Location:../../home/jeux");

@@ -335,7 +335,7 @@ fieldset{
 }
 
 .div_lien input:hover,.btn_deco:hover, .btn_retour:hover{
-    background-color: rgb(47, 194, 186);
+    background-color: #229966;
 }
 
 .div_lien{
@@ -384,6 +384,12 @@ fieldset{
     height: 115px;
     position: absolute;
 }
+/* -------------------- tableau double entrer -------------------- */
+.jour,.heure{
+    background-color: #229966;
+}
+
+
 
 /* -------------------- Page Partipant -------------------- */
 

@@ -93,7 +93,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
                         $totd++;
                     }
                     for ($i=0; $i <= $totd; $i++) { 
-                        echo"<td class='test'>
+                        echo"<td class='jour'>
                             <b>$jour[$i]</b>
                         </td>";
                     }
@@ -118,7 +118,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 
                 echo "<tr>
                       <td>
-                      <b>".$heure."h</b></td>";
+                      <b class='heure'>".$heure."h</b></td>";
 
                 for ($k=1; $k <= $totd  ; $k++) { 
                     $choix=array(null);
