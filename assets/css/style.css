@@ -1,5 +1,5 @@
 body{
-    background-color: #ecdfdf;
+    background-color: white;
 }
 
 a{
@@ -13,20 +13,20 @@ legend{
 
 fieldset{
     font-size: 25px;
-    box-shadow: 10px 5px 5px rgb(130, 139, 139);
+    box-shadow: -10px 5px 5px #CCCCFF;
 }
 /* -------------------- Connexion.php -------------------- */
 
 .logo_connexion{
     transform: translateX(-50%)translateY(-50%);
     left:50%;
-    top:10%;
+    top:15%;
     width: 600px;
     height: 300px;
     position: absolute;
 }
 .connexion{
-    background-color: blanchedalmond;
+    background-color: #e7e7e7;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -35,8 +35,6 @@ fieldset{
     top: 10%;
     left: 50%;
     transform: translateX(-50%)translateY(100%);
-    /* min-width: 40%;
-    min-height: 30%; */
 }
 
 .connexion fieldset{
@@ -45,22 +43,22 @@ fieldset{
 }
 
 .bouton {
-    background-color: blue;
+    background-color: #d4d4fa;
     border-radius: 13px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
+    border: 4px solid #cccccc;
+    color: white;
     text-align: center;
     font-size: 30px;
     padding: 3px;
     width: 90%;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 0px;
+    margin: 1px;
     transform: translateX(8%);
 }
 
 .bouton:hover {
-    background-color: #f7c2f9;
+    background-color: #c0c0fd;
     color: black;
 }
 
@@ -82,7 +80,7 @@ fieldset{
 /* -------------------- Inscription -------------------- */
 
 .inscription{
-    background-color: blanchedalmond;
+    background-color: #e7e7e7;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -95,7 +93,6 @@ fieldset{
 
 .inscription input{
     transform: translateX(-30%);
-
     text-align: center;
     width: 60%;
     padding: 12px;
@@ -113,28 +110,23 @@ fieldset{
 }
 
 .bouton2 {
-    background-color: rebeccapurple;
+    background-color: #d4d4fa; 
     border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
+    border: 4px solid #cccccc;
+    color: white;
     padding: 3px;
+    font-size: 30px;
     width: 100%;
     transition: all 0.5s;
     cursor: pointer; 
 }
-
-.bouton2 :after {
-    position: absolute;
-    transition: 0.5s;
-}
 .bouton2:hover {
-    background-color: #f7c2f9;
-    color: black;
+    background-color: #d9d9fa;
 }
 
 .logo_inscription{
     left: 50%;
-    top: 10%;
+    top: 15%;
     transform: translateX(-50%)translateY(-50%);
     width: 600px;
     height: 300px;
@@ -154,7 +146,7 @@ fieldset{
 
 .bar{
     padding: 1em;
-    background-color: blanchedalmond;
+    background-color: #e7e7e7;
     height: 2em;
     width: 100%;
     margin-left: -1em;
@@ -163,6 +155,8 @@ fieldset{
 }
 
 .btn_bar{
+    background-color: #d4d4fa;
+    color:white;
     position: relative;
     left:92%;
     width: 10%;
@@ -183,7 +177,7 @@ fieldset{
     border: solid 3px;
     width: 40%;
     height: 70%;
-    background-color: blanchedalmond;
+    background-color: #e7e7e7;
     overflow: auto;
 }
 
@@ -244,10 +238,10 @@ fieldset{
 
 
 .bouton3 {
-    background-color: red;
+    background-color: #d4d4fa; 
+    color:white;
     border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
+    border: 4px static #cccccc;
     text-align: center;
     font-size: 35px;
     padding: 3px;
@@ -262,11 +256,8 @@ fieldset{
     transition: 0.5s;
 }
 .bouton3:hover {
-    background-color: #f7c2f9;
+    background-color: #d9d9fa;
     color: black;
-}
-.bouton3:hover:after {
-    opacity: 1;
 }
 
 .contenu{
@@ -276,6 +267,8 @@ fieldset{
 
 .former_sondage input {
     cursor: pointer;
+    background-color: #d4d4fa;
+    color: white;
 }
 
 .logo_sondage{
@@ -289,6 +282,7 @@ fieldset{
 
 .croix{
     color: red;
+    cursor: pointer;
 }
 
 /* -------------------- Page Admin -------------------- */
@@ -308,7 +302,7 @@ fieldset{
 }
 
 .liste_participant{
-    background-color: blanchedalmond;
+    background-color: #e7e7e7;
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
@@ -324,6 +318,8 @@ fieldset{
 }
 
 .div_lien input,.btn_deco,.btn_retour{
+    background-color: #d4d4fa;
+    color:white;
     width: 100%;
     padding: 12px;
     border: 1px solid ;
@@ -335,7 +331,7 @@ fieldset{
 }
 
 .div_lien input:hover,.btn_deco:hover, .btn_retour:hover{
-    background-color: #229966;
+    background-color: #d9d9fa;
 }
 
 .div_lien{
@@ -375,7 +371,6 @@ fieldset{
 
 }
 
-
 .logo_admin{
     left: 50%;
     top: 4.5%;
@@ -385,11 +380,10 @@ fieldset{
     position: absolute;
 }
 /* -------------------- tableau double entrer -------------------- */
+
 .jour,.heure{
-    background-color: #229966;
+    background-color: #d4d4fa;
 }
-
-
 
 /* -------------------- Page Partipant -------------------- */
 
@@ -423,7 +417,7 @@ fieldset{
     cursor: pointer;
 }
 
-/*--------------------------------------------V1-------------------------------------------*/
+/*--------------------------------------------bouton tableaux-------------------------------------------*/
 
 table input[type="checkbox"] {
     appearance: none;

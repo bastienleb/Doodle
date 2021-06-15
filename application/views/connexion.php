@@ -30,8 +30,8 @@ body {
 <fieldset class="connexion">
     <form method="POST">
         <div class="formulaire">
-            <input type="text" id="nom" name="login" class="login" placeholder="login" required><br>
-            <input type="password" id="password" name="password" class="password" placeholder="mot de passe" required><br>
+            <input type="text" id="nom" name="login" class="login" placeholder="Login" required><br>
+            <input type="password" id="password" name="password" class="password" placeholder="Mot de passe" required><br>
             <br>
             <input type="submit" value="Connexion" class="bouton">
         </div>

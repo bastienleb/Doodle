@@ -24,11 +24,11 @@
 <form method="post">
 
 	<fieldset class="inscription">
-		<input type="text" name="login" placeholder="login" required><br>
-		<input type="password" name="password" placeholder="password" required><br>
+		<input type="text" name="login" placeholder="Login" required><br>
+		<input type="password" name="password" placeholder="Password" required><br>
 		<input type="text" name="nom" placeholder="Nom" required><br>
 		<input type="text" name="prenom" placeholder="Prénom" required><br>
-		<input type="email" name="email" placeholder="email" required><br>
+		<input type="email" name="email" placeholder="Email" required><br>
 	
 		<input type="submit" value='Créer le compte' class="bouton2">
 

@@ -65,14 +65,14 @@
     foreach($sondages as $sondage){
         echo form_open('admin/resultat',array('method'=>'get','class'=>'former_sondage'));
         echo form_hidden('cle',hash("ripemd160",$sondage->titre));
-        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a href='#' onclick='test()'><i class='fa fa-times croix'></i></a> </p>" ;
+        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a><i class='fa fa-times croix'></i></a> </p>" ;
          
         echo form_close();
         $titre=$sondage->titre;
         ?>
         <script type="text/javascript">
         function test(){
-            if ( confirm( "Suprimer le sondage ?" )) {
+            if ( confirm("Suprimer le sondage ?")) {
                 location.replace("../admin/delete/<?php echo $titre ?>");
             }
 

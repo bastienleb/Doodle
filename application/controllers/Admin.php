@@ -48,18 +48,19 @@ class Admin extends CI_Controller {
                 $titre_hash= hash("ripemd160",$titre->titre);
 
                 $clore=$this->input->post('clore');
-                $test="";
+                $titre_bon="";
                 if($_GET['cle']==$titre_hash){
-                        $test=$titre->titre;
-                        $verif = $this->ModeleResultat->get_resultat($titre->titre); 
-                        $data_verif=array('verif' => $verif);
-                        $data=array_replace($data,$data_verif);
+                    $verif = $this->ModeleResultat->get_resultat($titre->titre); 
+                    $data_verif=array('verif' => $verif);
+                    $data=array_replace($data,$data_verif);
+
+                    if(isset($clore)){
+                        $data_update=array('clos'=>$clore); 
+                        $update= $this->ModeleSondage->update_sondage($data_update,$titre->titre);
+                    }
                 }                 
             }
-                if(isset($clore)){
-                    $data_update=array('clos'=>$clore); 
-                    $update= $this->ModeleSondage->update_sondage($data_update,$test);
-                }
+                
             
 
 

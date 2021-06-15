@@ -67,7 +67,7 @@ foreach($titres as $titre){
 
 ?>
 
-<fieldset class ="div_lien">
+<fieldset class ="div_lien" id="clos">
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
         <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
@@ -75,25 +75,29 @@ foreach($titres as $titre){
     </p>
 
 
-    <form method="post" id="clos">
+    <form method="post" >
         <input type="hidden" name="clore" value="1">
         <input type="submit" value="Clore le sondage">
     </form>
     
+</fieldset>
+
     <?php
     foreach($titres as $titre){
-        if($titre->clos==1){
-            echo "<h3 class=''>Le sondage est clos</h3>";
-            ?>
-            <script type="text/javascript">
-                document.getElementById('clos').style.display = 'none';
-            </script>
+        $titre_hash= hash("ripemd160",$titre->titre);
+        if($_GET['cle']==$titre_hash){ 
+            if($titre->clos==1){
+                echo "<h1 class='fermeture'>Le sondage est clos</h1>";
+                ?>
+                <script type="text/javascript">
+                    document.getElementById('clos').style.display = 'none';
+                </script>
 
-            <?php
-        }  
-}
-    ?>
-</fieldset>
+                <?php
+            }  
+        }
+    }
+?>
 
 <fieldset>
 
@@ -138,7 +142,6 @@ foreach($titres as $titre){
         
         $participant=array();
         $participant_tmp=0;
-        //$tmpparticipant=0;
         foreach($titres as $titre){
             $titre_hash= hash("ripemd160",$titre->titre);
 
@@ -170,7 +173,7 @@ foreach($titres as $titre){
                                 $participant=array_replace($participant,$add_participant_login,$add_participant_jour,$add_participant_heure);
                             }
                             if($heure==$participant[2] && $jour[$h+1]==$participant[1]){
-                                echo $participant[0]."<br>";
+                                echo  $participant[0]."<br>";
                             }
                         }
                         echo "</td>";

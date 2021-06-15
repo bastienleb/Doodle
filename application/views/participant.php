@@ -49,19 +49,22 @@
 
 <?php
 foreach($titres as $titre){
-    echo "descriptif: $titre->descriptif css a faire ";
-    if($titre->clos==1){
-        echo "<h3 class='fermeture'>Le sondage est clos</h3>";
-        $tmp=0;
-    }
-    else{
-        $tmp=1;
+    $titre_hash= hash("ripemd160",$titre->titre);
+    if($_GET['cle']==$titre_hash){ 
+        echo "descriptif: $titre->descriptif css a faire ";
+        if($titre->clos==1){
+            echo "<h3 class='fermeture'>Le sondage est clos</h3>";
+            $tmp=0;
+        }
+        else{
+            $tmp=1;
+        }
     }
 }
 
 echo "<form method='POST'>";
 
-echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' maxlength='20'>";
+echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' >";
 echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 ?>
 
