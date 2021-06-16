@@ -56,19 +56,33 @@ class Participant extends CI_Controller {
                     
                     $tmp_heure++;
                 }
-                
-                $jourfinal = implode("", $jourfin);
-                $heurefinal = implode("", $heurefin);     
-                
-                $data_sondage=array(
-                    'login'=>$login,
-                    'jour'=> $jourfinal,
-                    'heure'=>$heurefinal,
-                    'titre_sondage'=>$titre
-                );              
 
-                if($this->ModeleResultat->addresultat($data_sondage)){
-                    header('Location:valider');
+                $interdiction1 = '<';
+                $interdiction2 = '>';
+                $interdiction3 = '/';
+
+                $test1 = stripos($login, $interdiction1);
+                $test2 = stripos($login, $interdiction2);
+                $test3 = stripos($login, $interdiction3);
+
+                if($test1 == true || $test2 == true || $test3 == true){
+                    echo "<div class='error'> une ou plusieurs valeurs contient des caracteres interdits !</div>";
+                }
+                else{
+                
+                    $jourfinal = implode("", $jourfin);
+                    $heurefinal = implode("", $heurefin);     
+                    
+                    $data_sondage=array(
+                        'login'=>$login,
+                        'jour'=> $jourfinal,
+                        'heure'=>$heurefinal,
+                        'titre_sondage'=>$titre
+                    );              
+
+                    if($this->ModeleResultat->addresultat($data_sondage)){
+                        header('Location:valider');
+                    }
                 }
                 
             }

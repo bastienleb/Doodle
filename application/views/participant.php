@@ -27,11 +27,14 @@
 
         $tmp=0;
         foreach($titres as $titre){
-            if($tmp==0){
-            echo "Le titre du sondage est : <b>".$titre->titre."</b>";
+            $titre_hash= hash("ripemd160",$titre->titre);
+            if($_GET['cle']==$titre_hash){ 
+                if($tmp==0){
+                echo "Le titre du sondage est : <b>".$titre->titre."</b>";
 
-            echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
-            $tmp=1;
+                echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
+                $tmp=1;
+                }
             }
         }
 
@@ -51,7 +54,7 @@
 foreach($titres as $titre){
     $titre_hash= hash("ripemd160",$titre->titre);
     if($_GET['cle']==$titre_hash){ 
-        echo "descriptif: $titre->descriptif css a faire ";
+        echo "<a class='descriptif_participant'>descriptif: $titre->descriptif </a> ";
         if($titre->clos==1){
             echo "<h3 class='fermeture'>Le sondage est clos</h3>";
             $tmp=0;
@@ -64,7 +67,7 @@ foreach($titres as $titre){
 
 echo "<form method='POST'>";
 
-echo "<input type='text' name='login' required class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' >";
+echo "<input type='text' name='login' maxlength='20' required maxlength='20' class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' >";
 echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 ?>
 
@@ -77,12 +80,9 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
             <?php
             foreach($titres as $titre){
                 $titre_hash= hash("ripemd160",$titre->titre);
-            
-            
                 if($_GET['cle']==$titre_hash){
                     $date_deb=date("l d-m-Y", strtotime($titre->date_debut));
                     $date_finn=date("l d-m-Y", strtotime($titre->date_fin));
-        
         
                     $date=$date_deb;
                     $totd=1;
@@ -110,33 +110,36 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
         <?php
         
         foreach($titres as $titre){
-            $heure_deb=date("H",strtotime($titre->heure_debut));
-            $heure_finn=date("H",strtotime($titre->heure_fin));
-            for ($j=$heure_deb; $j <=$heure_finn ; $j += 0.5) { 
-               $heure = str_replace(".5", ":30", $j);
-               if($heure<10 && !($j == $heure_deb)){
-                   $heure=array(0,$heure);
-                   $heure = implode("", $heure);
-                }
+            $titre_hash= hash("ripemd160",$titre->titre);
+            if($_GET['cle']==$titre_hash){
+                $heure_deb=date("H",strtotime($titre->heure_debut));
+                $heure_finn=date("H",strtotime($titre->heure_fin));
+                for ($j=$heure_deb; $j <=$heure_finn ; $j += 0.5) { 
+                $heure = str_replace(".5", ":30", $j);
+                if($heure<10 && !($j == $heure_deb)){
+                    $heure=array(0,$heure);
+                    $heure = implode("", $heure);
+                    }
 
-                echo "<tr>
-                      <td>
-                      <b class='heure'>".$heure."h</b></td>";
+                    echo "<tr>
+                        <td>
+                        <b class='heure'>".$heure."h</b></td>";
 
-                for ($k=1; $k <= $totd  ; $k++) { 
-                    $choix=array(null);
+                    for ($k=1; $k <= $totd  ; $k++) { 
+                        $choix=array(null);
+                        
+                        echo "<td><input type='checkbox' name='choix[]' value='$jour[$k]$heure'></td>";
+                    }
+                    echo "<input type='hidden' value='$titre->titre' name='titre'";
                     
-                    echo "<td><input type='checkbox' name='choix[]' value='$jour[$k]$heure'></td>";
+                    echo"</td>
+                        </tr>";
                 }
-                echo "<input type='hidden' value='$titre->titre' name='titre'";
-                
-                echo"</td>
-                     </tr>";
             }
         }
         ?>
     </table>
 <?php
-echo "</form>"
+echo "</form>";
 ?>
 </fieldset>

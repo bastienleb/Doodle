@@ -51,6 +51,9 @@ class Home extends CI_Controller{
             $heure_debut = $this->input->post('heure_debut');
             $heure_fin = $this->input->post('heure_fin');
             $login = $this->input->post('login');
+            $interdiction1 = '<';
+            $interdiction2 = '>';
+            $interdiction3 = '/';
 
             if($date_debut > $date_fin){
                 ?>
@@ -70,18 +73,34 @@ class Home extends CI_Controller{
             }
             else{
 
-                $data=array(
-                    'titre'=>$titre,
-                    'lieu'=> $lieu,
-                    'descriptif'=>$descriptif,
-                    'date_debut'=>$date_debut,
-                    'date_fin'=>$date_fin,
-                    'heure_debut'=>$heure_debut,
-                    'heure_fin'=>$heure_fin,
-                    'createur'=>$login
-                );            
-                if($this->ModeleSondage->addSondage($data)){
-                    header("Location:../admin/resultat?cle=".hash('ripemd160',$titre));
+                $test1 = stripos($titre, $interdiction1);
+                $test2 = stripos($titre, $interdiction2);
+                $test3 = stripos($titre, $interdiction3);
+                $test4 = stripos($lieu, $interdiction1);
+                $test5 = stripos($lieu, $interdiction2);
+                $test6 = stripos($lieu, $interdiction3);
+                $test7 = stripos($descriptif, $interdiction1);
+                $test8 = stripos($descriptif, $interdiction2);
+                $test9 = stripos($descriptif, $interdiction3);
+
+                if($test1 == true || $test2 == true || $test3 == true|| $test4 == true || $test5 == true ||
+                $test6 == true || $test7 == true || $test8 == true|| $test9 == true){
+                    echo "<div class='error'> une ou plusieurs valeurs contient des caracteres interdits !</div>";
+                }
+                else{
+                    $data=array(
+                        'titre'=>$titre,
+                        'lieu'=> $lieu,
+                        'descriptif'=>$descriptif,
+                        'date_debut'=>$date_debut,
+                        'date_fin'=>$date_fin,
+                        'heure_debut'=>$heure_debut,
+                        'heure_fin'=>$heure_fin,
+                        'createur'=>$login
+                    );            
+                    if($this->ModeleSondage->addSondage($data)){
+                        header("Location:../admin/resultat?cle=".hash('ripemd160',$titre));
+                    }
                 }
             }
         }

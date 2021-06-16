@@ -41,6 +41,7 @@
 
 
 
+
 <fieldset class="creer_sondage" >
 <legend>Créer un sondage  </legend>
     <div>
@@ -65,20 +66,10 @@
     foreach($sondages as $sondage){
         echo form_open('admin/resultat',array('method'=>'get','class'=>'former_sondage'));
         echo form_hidden('cle',hash("ripemd160",$sondage->titre));
-        echo "<p class='former_sondage'>". form_submit("",$sondage->titre)."<a><i class='fa fa-times croix'></i></a> </p>" ;
+        echo "<p class='former_sondage'>". form_submit("",$sondage->titre);
          
         echo form_close();
-        $titre=$sondage->titre;
-        ?>
-        <script type="text/javascript">
-        function test(){
-            if ( confirm("Suprimer le sondage ?")) {
-                location.replace("../admin/delete/<?php echo $titre ?>");
-            }
-
-        }
-        </script>
-        <?php
+        
     }   
     
     ?>
@@ -90,3 +81,12 @@ body{
     overflow: hidden;
 }
 </style>
+
+<script type="text/javascript">
+        function test(){
+            if (confirm("Suprimer le sondage <?php echo $titre ?>?")) {
+                location.replace("../admin/delete/<?php echo $titre ?>");
+            }
+
+        }
+</script>

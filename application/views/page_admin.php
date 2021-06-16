@@ -57,7 +57,7 @@ foreach($titres as $titre){
 
         echo "<a style='float:right'>Le lieu du sondage est : <b>".$titre->lieu."</b></a>";
 
-        echo "<a'> descriptif: $titre->descriptif css a faire </a>";
+        echo "<a class='descriptif'> descriptif: $titre->descriptif</a>";
 
         $tmptitre=1;
         }
@@ -75,28 +75,36 @@ foreach($titres as $titre){
     </p>
 
 
-    <form method="post" >
+    <form method="post" class='clore'>
         <input type="hidden" name="clore" value="1">
         <input type="submit" value="Clore le sondage">
-    </form>
-    
+    </form>    
 </fieldset>
 
-    <?php
-    foreach($titres as $titre){
-        $titre_hash= hash("ripemd160",$titre->titre);
-        if($_GET['cle']==$titre_hash){ 
-            if($titre->clos==1){
-                echo "<h1 class='fermeture'>Le sondage est clos</h1>";
-                ?>
-                <script type="text/javascript">
-                    document.getElementById('clos').style.display = 'none';
-                </script>
-
-                <?php
-            }  
-        }
+<?php
+foreach($titres as $titre){
+    $titre_hash= hash("ripemd160",$titre->titre);
+    if($_GET['cle']==$titre_hash){
+        echo "<form method='post'  action='../admin/delete/$titre->titre'>
+            <input type='submit' value='supprimer le sondage' class='supprimer'>
+        </form>";
     }
+}
+
+foreach($titres as $titre){
+    $titre_hash= hash("ripemd160",$titre->titre);
+    if($_GET['cle']==$titre_hash){ 
+        if($titre->clos==1){
+            echo "<h1 class='fermeture'>Le sondage est clos</h1>";
+            ?>
+            <script type="text/javascript">
+                document.getElementById('clos').style.display = 'none';
+            </script>
+
+            <?php
+        }  
+    }
+}
 ?>
 
 <fieldset>

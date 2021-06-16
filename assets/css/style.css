@@ -30,9 +30,8 @@ fieldset{
     border-radius: 1em;
     border: solid 3px;
     width: 30%;
-    height: 30%;
+    height: 40%;
     position: relative;
-    top: 10%;
     left: 50%;
     transform: translateX(-50%)translateY(100%);
 }
@@ -73,8 +72,11 @@ fieldset{
     margin-bottom: 14px;
     font-size: 100%;
     transform: translateX(20%);
-    
+}
 
+.error{
+    background-color: red;
+    color:white;
 }
 
 /* -------------------- Inscription -------------------- */
@@ -210,7 +212,6 @@ fieldset{
 }
 
 .creer_sondage legend, .liste_sondage_user legend{
-    text-align: center;
     background-color: black;
     color: #fff;
     padding: 3px 6px;
@@ -255,7 +256,7 @@ fieldset{
 .bouton3 :after {
     transition: 0.5s;
 }
-.bouton3:hover {
+.bouton3:hover, .btn_bar:hover,.liste_sondage_user input:hover {
     background-color: #d9d9fa;
     color: black;
 }
@@ -317,7 +318,7 @@ fieldset{
     border: 3px solid #555;
 }
 
-.div_lien input,.btn_deco,.btn_retour{
+.div_lien input,.btn_deco,.btn_retour, .supprimer{
     background-color: #d4d4fa;
     color:white;
     width: 100%;
@@ -330,8 +331,9 @@ fieldset{
     font-size: 100%;
 }
 
-.div_lien input:hover,.btn_deco:hover, .btn_retour:hover{
+.div_lien input:hover,.btn_deco:hover, .btn_retour:hover, .supprimer:hover{
     background-color: #d9d9fa;
+    color: black;
 }
 
 .div_lien{
@@ -351,6 +353,7 @@ fieldset{
     position: relative;
     left: 20%;
     opacity: 0.7;
+    cursor: default;
 }
 
 .btn_deco{
@@ -378,6 +381,15 @@ fieldset{
     width: 230px;
     height: 115px;
     position: absolute;
+}
+
+.descriptif{
+    position: relative;
+    left: 36%;
+}
+
+.supprimer{
+    cursor: pointer;
 }
 /* -------------------- tableau double entrer -------------------- */
 
@@ -415,6 +427,11 @@ fieldset{
 .btn_choix{
     width: 100%;
     cursor: pointer;
+}
+
+.descriptif_participant{
+    position: relative;
+    left: 48%;
 }
 
 /*--------------------------------------------bouton tableaux-------------------------------------------*/
