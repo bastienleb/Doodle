@@ -18,12 +18,12 @@
 ###########################################################################
 */
 ?>
-
+<!-- 
 <style type="text/css">
 body {
     overflow-y: scroll;
 }
-</style>
+</style> -->
 
 <img src="../../assets/img/logo2.png" class="logo_connexion"  alt="Logo DOODLE">
 

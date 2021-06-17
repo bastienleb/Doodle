@@ -487,3 +487,4 @@ table input[type="checkbox"]:focus:checked:not(:disabled):after {
 table input[type="checkbox"]:disabled {
     opacity: 0.5;
 }
+

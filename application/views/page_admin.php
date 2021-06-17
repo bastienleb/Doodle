@@ -67,18 +67,32 @@ foreach($titres as $titre){
 
 ?>
 
-<fieldset class ="div_lien" id="clos">
-    <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
-    <p>
-        <span><a id="tocopy" >https://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
-        <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
-    </p>
-
-
-    <form method="post" class='clore'>
-        <input type="hidden" name="clore" value="1">
-        <input type="submit" value="Clore le sondage">
-    </form>    
+<?php
+foreach($titres as $titre){
+    $titre_hash= hash("ripemd160",$titre->titre);
+    if($_GET['cle']==$titre_hash){ 
+        if($titre->clos==1){
+            echo "<h1 class='fermeture'>Le sondage est clos</h1>";
+            
+        }  
+        else{
+            ?>
+            
+        <fieldset class ="div_lien">
+            <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
+            
+            <span><a id="tocopy" >https://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
+            <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
+            
+            <form method="post" class='clore'>
+                <input type="hidden" name="clore" value="1">
+                <input type="submit" value="Clore le sondage">
+            </form>    
+        <?php
+        }
+    }
+}
+?>
 </fieldset>
 
 <?php
@@ -91,20 +105,6 @@ foreach($titres as $titre){
     }
 }
 
-foreach($titres as $titre){
-    $titre_hash= hash("ripemd160",$titre->titre);
-    if($_GET['cle']==$titre_hash){ 
-        if($titre->clos==1){
-            echo "<h1 class='fermeture'>Le sondage est clos</h1>";
-            ?>
-            <script type="text/javascript">
-                document.getElementById('clos').style.display = 'none';
-            </script>
-
-            <?php
-        }  
-    }
-}
 ?>
 
 <fieldset>

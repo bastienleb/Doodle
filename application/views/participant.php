@@ -67,7 +67,7 @@ foreach($titres as $titre){
 
 echo "<form method='POST'>";
 
-echo "<input type='text' name='login' maxlength='20' required maxlength='20' class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' >";
+echo "<input type='text' name='login' maxlength='20' required class='nom_participant'  placeholder='Nom et Prénom (moins de 20 caractères)' >";
 echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
 ?>
 
@@ -122,15 +122,15 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
                     }
 
                     echo "<tr>
-                        <td>
-                        <b class='heure'>".$heure."h</b></td>";
+                        <td class='heure'>
+                        <b>".$heure."h</b></td>";
 
                     for ($k=1; $k <= $totd  ; $k++) { 
                         $choix=array(null);
                         
                         echo "<td><input type='checkbox' name='choix[]' value='$jour[$k]$heure'></td>";
                     }
-                    echo "<input type='hidden' value='$titre->titre' name='titre'";
+                    echo "<input type='hidden' value='$titre->titre' name='titre' >";
                     
                     echo"</td>
                         </tr>";
@@ -139,7 +139,7 @@ echo "<input type='submit' value='Valider' id='btn_choix' class='btn_choix'>";
         }
         ?>
     </table>
+    </fieldset>
 <?php
 echo "</form>";
 ?>
-</fieldset>
