@@ -70,7 +70,7 @@ foreach($titres as $titre){
 <fieldset class ="div_lien" id="clos">
     <legend class="legend_sondage" > Lien pour les participants du sondage </legend>
     <p>
-        <span><a id="tocopy" >http://localhost/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
+        <span><a id="tocopy" >https://dwarves.iut-fbleau.fr/~leblet/projet_doodle/index.php/participant/choix?cle=<?php echo $_GET['cle'];?>  </a></span>
         <input type="button" value=" Copiez cette adresse" class="js-copy" data-target="#tocopy" >
     </p>
 
